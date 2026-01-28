@@ -1,0 +1,31 @@
+import * as React from "react";
+import type { SVGProps } from "react";
+const SvgServer01 = (props: SVGProps<SVGSVGElement>) => (
+  <svg
+    xmlns="http://www.w3.org/2000/svg"
+    width="1em"
+    height="1em"
+    fill="none"
+    viewBox="0 0 24 24"
+    role="img"
+    {...props}
+  >
+    <g
+      stroke="currentColor"
+      strokeLinecap="round"
+      strokeLinejoin="round"
+      strokeWidth={2}
+      opacity={0.4}
+    >
+      <path d="M2 5.2c0-1.12 0-1.68.218-2.108a2 2 0 0 1 .874-.874C3.52 2 4.08 2 5.2 2h13.6c1.12 0 1.68 0 2.108.218a2 2 0 0 1 .874.874C22 3.52 22 4.08 22 5.2v1.6c0 1.12 0 1.68-.218 2.108a2 2 0 0 1-.874.874C20.48 10 19.92 10 18.8 10H5.2c-1.12 0-1.68 0-2.108-.218a2 2 0 0 1-.874-.874C2 8.48 2 7.92 2 6.8zM2 17.2c0-1.12 0-1.68.218-2.108a2 2 0 0 1 .874-.874C3.52 14 4.08 14 5.2 14h13.6c1.12 0 1.68 0 2.108.218a2 2 0 0 1 .874.874C22 15.52 22 16.08 22 17.2v1.6c0 1.12 0 1.68-.218 2.108a2 2 0 0 1-.874.874C20.48 22 19.92 22 18.8 22H5.2c-1.12 0-1.68 0-2.108-.218a2 2 0 0 1-.874-.874C2 20.48 2 19.92 2 18.8z" />
+    </g>
+    <path
+      stroke="currentColor"
+      strokeLinecap="round"
+      strokeLinejoin="round"
+      strokeWidth={2}
+      d="M6 6h.01M6 18h.01"
+    />
+  </svg>
+);
+export default SvgServer01;

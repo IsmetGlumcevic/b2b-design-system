@@ -1,0 +1,27 @@
+import * as React from "react";
+import type { SVGProps } from "react";
+const SvgUsers01 = (props: SVGProps<SVGSVGElement>) => (
+  <svg
+    xmlns="http://www.w3.org/2000/svg"
+    width="1em"
+    height="1em"
+    fill="none"
+    viewBox="0 0 24 24"
+    role="img"
+    {...props}
+  >
+    <path
+      fill="currentColor"
+      fillRule="evenodd"
+      d="M18.032 14.877a1 1 0 0 1 1.217-.72A5 5 0 0 1 23 19v2a1 1 0 1 1-2 0v-2a3 3 0 0 0-2.25-2.905 1 1 0 0 1-.718-1.218M14.573 2.916a1 1 0 0 1 1.302-.552 5.001 5.001 0 0 1 0 9.272 1 1 0 0 1-.75-1.854 3.001 3.001 0 0 0 0-5.564 1 1 0 0 1-.552-1.302M7.179 14h4.642c1.09 0 1.835 0 2.473.17a5 5 0 0 1 3.536 3.536c.23.86.163 1.778.17 2.658.001.107.003.323-.051.524a1.5 1.5 0 0 1-1.06 1.06c-.202.055-.418.053-.525.052a861 861 0 0 0-13.728 0c-.107.001-.323.003-.524-.051a1.5 1.5 0 0 1-1.06-1.06c-.055-.202-.053-.418-.052-.525.007-.878-.06-1.8.17-2.658a5 5 0 0 1 3.536-3.536C5.344 14 6.088 14 7.179 14"
+      clipRule="evenodd"
+    />
+    <path
+      fill="currentColor"
+      fillRule="evenodd"
+      d="M4.5 7a5 5 0 1 1 10 0 5 5 0 0 1-10 0"
+      clipRule="evenodd"
+    />
+  </svg>
+);
+export default SvgUsers01;

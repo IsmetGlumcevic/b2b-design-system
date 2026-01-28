@@ -1,0 +1,19 @@
+import * as React from "react";
+import type { SVGProps } from "react";
+const SvgNavigationPointer02 = (props: SVGProps<SVGSVGElement>) => (
+  <svg
+    xmlns="http://www.w3.org/2000/svg"
+    width="1em"
+    height="1em"
+    fill="none"
+    viewBox="0 0 24 24"
+    role="img"
+    {...props}
+  >
+    <path
+      fill="currentColor"
+      d="M12.666 1.903a1.5 1.5 0 0 0-1.34 0c-.374.186-.567.514-.658.681-.1.182-.203.416-.306.651L3.05 19.905c-.115.262-.227.516-.298.727-.062.182-.187.575-.053.998a1.5 1.5 0 0 0 .98.979c.423.133.816.007.998-.055.21-.071.464-.183.727-.298l6.59-2.9 6.592 2.9c.262.115.516.227.727.299.181.061.575.187.998.053a1.5 1.5 0 0 0 .98-.978c.133-.423.008-.816-.054-.998-.07-.211-.182-.465-.297-.727l-7.312-16.67a9 9 0 0 0-.305-.65c-.092-.168-.285-.496-.658-.682"
+    />
+  </svg>
+);
+export default SvgNavigationPointer02;

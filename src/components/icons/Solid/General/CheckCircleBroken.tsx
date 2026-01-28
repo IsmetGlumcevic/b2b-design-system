@@ -1,0 +1,19 @@
+import * as React from "react";
+import type { SVGProps } from "react";
+const SvgCheckCircleBroken = (props: SVGProps<SVGSVGElement>) => (
+  <svg
+    xmlns="http://www.w3.org/2000/svg"
+    width="1em"
+    height="1em"
+    fill="none"
+    viewBox="0 0 24 24"
+    role="img"
+    {...props}
+  >
+    <path
+      fill="currentColor"
+      d="M12 1C5.925 1 1 5.925 1 12s4.925 11 11 11 11-4.925 11-11a11 11 0 0 0-.792-4.105c-.213-.53-.32-.795-.572-.966-.2-.136-.517-.2-.754-.154-.3.059-.532.292-.998.758l-7.177 7.184a1 1 0 0 1-1.414 0l-3-3a1 1 0 1 1 1.414-1.414L12 12.595l6.978-6.984c.375-.377.563-.565.635-.81a1.1 1.1 0 0 0-.034-.656c-.096-.238-.276-.384-.636-.677A10.95 10.95 0 0 0 12 1"
+    />
+  </svg>
+);
+export default SvgCheckCircleBroken;

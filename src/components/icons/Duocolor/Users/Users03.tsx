@@ -1,0 +1,30 @@
+import * as React from "react";
+import type { SVGProps } from "react";
+const SvgUsers03 = (props: SVGProps<SVGSVGElement>) => (
+  <svg
+    xmlns="http://www.w3.org/2000/svg"
+    width="1em"
+    height="1em"
+    fill="none"
+    viewBox="0 0 24 24"
+    role="img"
+    {...props}
+  >
+    <path
+      stroke="currentColor"
+      strokeLinecap="round"
+      strokeLinejoin="round"
+      strokeWidth={2}
+      d="M18 15.837c1.456.731 2.704 1.905 3.615 3.373.18.29.27.436.302.637.063.409-.216.912-.597 1.073-.187.08-.398.08-.82.08M16 11.532a4.5 4.5 0 0 0 0-8.064"
+      opacity={0.4}
+    />
+    <path
+      stroke="currentColor"
+      strokeLinecap="round"
+      strokeLinejoin="round"
+      strokeWidth={2}
+      d="M9.5 12a4.5 4.5 0 1 0 0-9 4.5 4.5 0 0 0 0 9M9.5 15c-2.83 0-5.346 1.545-6.94 3.938-.35.525-.525.787-.505 1.122.016.26.187.58.395.738.268.202.636.202 1.372.202h11.356c.736 0 1.104 0 1.371-.202.209-.158.38-.477.396-.738.02-.335-.155-.597-.504-1.122C14.846 16.545 12.33 15 9.5 15"
+    />
+  </svg>
+);
+export default SvgUsers03;

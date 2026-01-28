@@ -1,0 +1,25 @@
+import * as React from "react";
+import type { SVGProps } from "react";
+const SvgZapOff = (props: SVGProps<SVGSVGElement>) => (
+  <svg
+    xmlns="http://www.w3.org/2000/svg"
+    width="1em"
+    height="1em"
+    fill="none"
+    viewBox="0 0 24 24"
+    role="img"
+    {...props}
+  >
+    <path
+      fill="currentColor"
+      fillRule="evenodd"
+      d="M3.707 2.293a1 1 0 0 0-1.414 1.414l4.354 4.354-3.345 4.014c-.154.185-.31.373-.424.538-.108.155-.304.462-.31.864a1.5 1.5 0 0 0 .557 1.19c.313.253.674.298.863.315.2.018.443.018.684.018h6.195l-.86 6.876a1 1 0 0 0 1.761.764l4.3-5.159 4.225 4.226a1 1 0 0 0 1.414-1.414z"
+      clipRule="evenodd"
+    />
+    <path
+      fill="currentColor"
+      d="m18.639 14.396 2.059-2.471c.154-.185.31-.373.424-.538.108-.155.304-.462.31-.864a1.5 1.5 0 0 0-.557-1.19c-.313-.253-.674-.298-.863-.315C19.812 9 19.57 9 19.328 9h-6.085zM13.145 8.902l.847-6.778a1 1 0 0 0-1.76-.764L9.218 4.976z"
+    />
+  </svg>
+);
+export default SvgZapOff;

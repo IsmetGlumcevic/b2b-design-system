@@ -1,0 +1,30 @@
+import * as React from "react";
+import type { SVGProps } from "react";
+const SvgLightbulb02 = (props: SVGProps<SVGSVGElement>) => (
+  <svg
+    xmlns="http://www.w3.org/2000/svg"
+    width="1em"
+    height="1em"
+    fill="none"
+    viewBox="0 0 24 24"
+    role="img"
+    {...props}
+  >
+    <path
+      stroke="currentColor"
+      strokeLinecap="round"
+      strokeLinejoin="round"
+      strokeWidth={2}
+      d="M14 17.659V20a2 2 0 0 1-2 2v0a2 2 0 0 1-2-2V17.66M12 2v1m-9 9H2m3.5-6.5-.6-.6m13.6.6.6-.6M22 12h-1"
+      opacity={0.4}
+    />
+    <path
+      stroke="currentColor"
+      strokeLinecap="round"
+      strokeLinejoin="round"
+      strokeWidth={2}
+      d="M12 18a6 6 0 1 0 0-12 6 6 0 0 0 0 12"
+    />
+  </svg>
+);
+export default SvgLightbulb02;

@@ -1,0 +1,21 @@
+import * as React from "react";
+import type { SVGProps } from "react";
+const SvgDivide03 = (props: SVGProps<SVGSVGElement>) => (
+  <svg
+    xmlns="http://www.w3.org/2000/svg"
+    width="1em"
+    height="1em"
+    fill="none"
+    viewBox="0 0 24 24"
+    role="img"
+    {...props}
+  >
+    <path
+      fill="currentColor"
+      fillRule="evenodd"
+      d="M12 1C5.925 1 1 5.925 1 12s4.925 11 11 11 11-4.925 11-11S18.075 1 12 1m-1.5 7a1.5 1.5 0 1 1 3 0 1.5 1.5 0 0 1-3 0m0 8a1.5 1.5 0 1 1 3 0 1.5 1.5 0 0 1-3 0M7 11a1 1 0 1 0 0 2h10a1 1 0 1 0 0-2z"
+      clipRule="evenodd"
+    />
+  </svg>
+);
+export default SvgDivide03;

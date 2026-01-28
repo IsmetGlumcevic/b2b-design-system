@@ -1,0 +1,19 @@
+import * as React from "react";
+import type { SVGProps } from "react";
+const SvgCube03 = (props: SVGProps<SVGSVGElement>) => (
+  <svg
+    xmlns="http://www.w3.org/2000/svg"
+    width="1em"
+    height="1em"
+    fill="none"
+    viewBox="0 0 24 24"
+    role="img"
+    {...props}
+  >
+    <path
+      fill="currentColor"
+      d="M19.73 2.856a.5.5 0 0 0-.353-.854L8.414 2A2 2 0 0 0 7 2.586l-3.56 3.56A.5.5 0 0 0 3.792 7h11.586a.5.5 0 0 0 .353-.146zM2.5 9a.5.5 0 0 0-.5.5v11A1.5 1.5 0 0 0 3.5 22h11a.5.5 0 0 0 .5-.5v-12a.5.5 0 0 0-.5-.5zM17 20.207a.5.5 0 0 0 .854.354L21.414 17A2 2 0 0 0 22 15.586l-.002-10.963a.5.5 0 0 0-.854-.353l-3.998 3.998A.5.5 0 0 0 17 8.62z"
+    />
+  </svg>
+);
+export default SvgCube03;

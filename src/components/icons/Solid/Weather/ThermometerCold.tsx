@@ -1,0 +1,25 @@
+import * as React from "react";
+import type { SVGProps } from "react";
+const SvgThermometerCold = (props: SVGProps<SVGSVGElement>) => (
+  <svg
+    xmlns="http://www.w3.org/2000/svg"
+    width="1em"
+    height="1em"
+    fill="none"
+    viewBox="0 0 24 24"
+    role="img"
+    {...props}
+  >
+    <path
+      fill="currentColor"
+      fillRule="evenodd"
+      d="M18 1a3 3 0 0 0-3 3v10a5 5 0 1 0 6 0V4a3 3 0 0 0-3-3"
+      clipRule="evenodd"
+    />
+    <path
+      fill="currentColor"
+      d="M10 4a1 1 0 1 0-2 0v2.586L6.707 5.293a1 1 0 0 0-1.414 1.414L8 9.414V11H6.414L3.707 8.293a1 1 0 0 0-1.414 1.414L3.586 11H2a1 1 0 1 0 0 2h1.586l-1.293 1.293a1 1 0 1 0 1.414 1.414L6.414 13H8v1.586l-2.707 2.707a1 1 0 1 0 1.414 1.414L8 17.414V20a1 1 0 1 0 2 0v-2.634a1 1 0 0 0 1.207-1.573L10 14.586V13h2a1 1 0 1 0 0-2h-2V9.414l2.707-2.707a1 1 0 0 0-1.414-1.414L10 6.586z"
+    />
+  </svg>
+);
+export default SvgThermometerCold;

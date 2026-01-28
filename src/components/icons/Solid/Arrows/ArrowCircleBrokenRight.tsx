@@ -1,0 +1,19 @@
+import * as React from "react";
+import type { SVGProps } from "react";
+const SvgArrowCircleBrokenRight = (props: SVGProps<SVGSVGElement>) => (
+  <svg
+    xmlns="http://www.w3.org/2000/svg"
+    width="1em"
+    height="1em"
+    fill="none"
+    viewBox="0 0 24 24"
+    role="img"
+    {...props}
+  >
+    <path
+      fill="currentColor"
+      d="M1.34 14.724c-.127-.499-.19-.748-.109-1.016.065-.214.246-.447.437-.563C1.908 13 2.203 13 2.795 13h10.79l-2.292 2.293a1 1 0 0 0 1.414 1.414l4-4a1 1 0 0 0 0-1.414l-4-4a1 1 0 1 0-1.414 1.414L13.586 11H2.796c-.593 0-.889 0-1.128-.145a1.1 1.1 0 0 1-.437-.563c-.082-.268-.018-.517.109-1.016C2.552 4.518 6.865 1 12 1c6.075 0 11 4.925 11 11s-4.925 11-11 11c-5.135 0-9.448-3.518-10.66-8.276"
+    />
+  </svg>
+);
+export default SvgArrowCircleBrokenRight;

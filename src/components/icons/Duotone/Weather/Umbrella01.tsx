@@ -1,0 +1,27 @@
+import * as React from "react";
+import type { SVGProps } from "react";
+const SvgUmbrella01 = (props: SVGProps<SVGSVGElement>) => (
+  <svg
+    xmlns="http://www.w3.org/2000/svg"
+    width="1em"
+    height="1em"
+    fill="none"
+    viewBox="0 0 24 24"
+    role="img"
+    {...props}
+  >
+    <path
+      fill="currentColor"
+      d="M12 2c-4.98 0-9.11 3.64-9.874 8.406-.074.465-.111.698-.018.946.074.198.257.412.44.516.23.132.504.132 1.052.132h16.8c.548 0 .821 0 1.052-.132.183-.104.365-.318.44-.516.093-.248.056-.48-.018-.946C21.11 5.641 16.98 2 12 2"
+      opacity={0.12}
+    />
+    <path
+      stroke="currentColor"
+      strokeLinecap="round"
+      strokeLinejoin="round"
+      strokeWidth={2}
+      d="M17 19.4c0 1.436-1.12 2.6-2.5 2.6S12 20.836 12 19.4V12m-9.874-1.594C2.89 5.641 7.02 2 12 2s9.11 3.64 9.874 8.406c.074.465.111.698.018.946a1.1 1.1 0 0 1-.44.516c-.23.132-.504.132-1.052.132H3.6c-.548 0-.821 0-1.052-.132a1.1 1.1 0 0 1-.44-.516c-.093-.248-.056-.48.018-.946"
+    />
+  </svg>
+);
+export default SvgUmbrella01;

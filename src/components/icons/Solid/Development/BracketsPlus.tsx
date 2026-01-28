@@ -1,0 +1,19 @@
+import * as React from "react";
+import type { SVGProps } from "react";
+const SvgBracketsPlus = (props: SVGProps<SVGSVGElement>) => (
+  <svg
+    xmlns="http://www.w3.org/2000/svg"
+    width="1em"
+    height="1em"
+    fill="none"
+    viewBox="0 0 24 24"
+    role="img"
+    {...props}
+  >
+    <path
+      fill="currentColor"
+      d="M5.429 3a3.285 3.285 0 0 0-3.286 3.286v4.157l-.85.85a1 1 0 0 0 0 1.414l.85.85v4.157A3.285 3.285 0 0 0 5.429 21a1 1 0 1 0 0-2c-.71 0-1.286-.575-1.286-1.286v-4.571a1 1 0 0 0-.293-.707L3.414 12l.436-.436a1 1 0 0 0 .293-.707V6.286c0-.71.575-1.286 1.286-1.286a1 1 0 0 0 0-2M18.57 3a1 1 0 1 0 0 2c.712 0 1.287.575 1.287 1.286v4.571a1 1 0 0 0 .293.707l.436.436-.436.436a1 1 0 0 0-.293.707v4.571c0 .71-.576 1.286-1.286 1.286a1 1 0 1 0 0 2 3.286 3.286 0 0 0 3.286-3.286v-4.157l.85-.85a1 1 0 0 0 0-1.414l-.85-.85V6.286A3.285 3.285 0 0 0 18.57 3M12 7a1 1 0 0 1 1 1v3h3a1 1 0 1 1 0 2h-3v3a1 1 0 1 1-2 0v-3H8a1 1 0 1 1 0-2h3V8a1 1 0 0 1 1-1"
+    />
+  </svg>
+);
+export default SvgBracketsPlus;

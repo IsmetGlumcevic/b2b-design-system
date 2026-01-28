@@ -1,0 +1,30 @@
+import * as React from "react";
+import type { SVGProps } from "react";
+const SvgPenTool01 = (props: SVGProps<SVGSVGElement>) => (
+  <svg
+    xmlns="http://www.w3.org/2000/svg"
+    width="1em"
+    height="1em"
+    fill="none"
+    viewBox="0 0 24 24"
+    role="img"
+    {...props}
+  >
+    <path
+      stroke="currentColor"
+      strokeLinecap="round"
+      strokeLinejoin="round"
+      strokeWidth={2}
+      d="M13.132 20.131c-.397-.396-.595-.594-.669-.822a1 1 0 0 1 0-.618c.074-.229.272-.426.669-.822l4.737-4.738c.396-.396.594-.594.822-.668a1 1 0 0 1 .618 0c.228.074.426.272.822.668l.738.737c.396.396.594.595.668.823a1 1 0 0 1 0 .618c-.074.228-.272.426-.668.822L16.13 20.87c-.396.396-.594.593-.822.668a1 1 0 0 1-.618 0c-.228-.075-.426-.272-.822-.668z"
+      opacity={0.4}
+    />
+    <path
+      stroke="currentColor"
+      strokeLinecap="round"
+      strokeLinejoin="round"
+      strokeWidth={2}
+      d="m2 2 13.507 3.26c.36.087.54.13.684.225a1 1 0 0 1 .312.325c.088.147.125.329.197.692L18 13l-5 5-6.498-1.3c-.363-.072-.545-.108-.692-.197a1 1 0 0 1-.325-.312c-.094-.144-.138-.324-.225-.684zm0 0 7.586 7.586M13 11a2 2 0 1 1-4 0 2 2 0 0 1 4 0"
+    />
+  </svg>
+);
+export default SvgPenTool01;

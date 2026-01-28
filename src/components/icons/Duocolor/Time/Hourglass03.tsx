@@ -1,0 +1,30 @@
+import * as React from "react";
+import type { SVGProps } from "react";
+const SvgHourglass03 = (props: SVGProps<SVGSVGElement>) => (
+  <svg
+    xmlns="http://www.w3.org/2000/svg"
+    width="1em"
+    height="1em"
+    fill="none"
+    viewBox="0 0 24 24"
+    role="img"
+    {...props}
+  >
+    <path
+      stroke="currentColor"
+      strokeLinecap="round"
+      strokeLinejoin="round"
+      strokeWidth={2}
+      d="M9 18.5h6"
+      opacity={0.4}
+    />
+    <path
+      stroke="currentColor"
+      strokeLinecap="round"
+      strokeLinejoin="round"
+      strokeWidth={2}
+      d="M17.4 2H6.6c-.56 0-.84 0-1.054.109a1 1 0 0 0-.437.437C5 2.76 5 3.04 5 3.6v2.075c0 .489 0 .733.055.963a2 2 0 0 0 .24.579c.123.201.296.374.642.72L8.87 10.87c.396.396.594.594.668.822a1 1 0 0 1 0 .618c-.074.228-.272.426-.668.822l-2.932 2.932c-.346.346-.519.519-.642.72q-.165.271-.24.578c-.055.23-.055.475-.055.965V20.4c0 .56 0 .84.109 1.054a1 1 0 0 0 .437.437C5.76 22 6.04 22 6.6 22h10.8c.56 0 .84 0 1.054-.109a1 1 0 0 0 .437-.437C19 21.24 19 20.96 19 20.4v-2.074c0-.49 0-.734-.055-.965q-.075-.308-.24-.578c-.123-.201-.296-.374-.642-.72L15.13 13.13c-.396-.396-.594-.594-.668-.822a1 1 0 0 1 0-.618c.074-.228.272-.426.668-.822l2.932-2.932c.346-.346.519-.519.642-.72q.165-.27.24-.579c.055-.23.055-.474.055-.963V3.6c0-.56 0-.84-.109-1.054a1 1 0 0 0-.437-.437C18.24 2 17.96 2 17.4 2"
+    />
+  </svg>
+);
+export default SvgHourglass03;

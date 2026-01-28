@@ -1,0 +1,27 @@
+import * as React from "react";
+import type { SVGProps } from "react";
+const SvgStickerSquare = (props: SVGProps<SVGSVGElement>) => (
+  <svg
+    xmlns="http://www.w3.org/2000/svg"
+    width="1em"
+    height="1em"
+    fill="none"
+    viewBox="0 0 24 24"
+    role="img"
+    {...props}
+  >
+    <path
+      fill="currentColor"
+      d="M14.366 4.366c-.429-.429-.643-.643-.827-.657a.5.5 0 0 0-.42.173C13 4.022 13 4.325 13 4.932V6.2c0 1.68 0 2.52.327 3.162a3 3 0 0 0 1.311 1.31C15.28 11 16.12 11 17.8 11h1.269"
+      opacity={0.12}
+    />
+    <path
+      stroke="currentColor"
+      strokeLinecap="round"
+      strokeLinejoin="round"
+      strokeWidth={2}
+      d="M13 3.5v2.7c0 1.68 0 2.52.327 3.162a3 3 0 0 0 1.311 1.311C15.28 11 16.12 11 17.8 11h2.7m.5 1.988V16.2c0 1.68 0 2.52-.327 3.162a3 3 0 0 1-1.311 1.311C18.72 21 17.88 21 16.2 21H7.8c-1.68 0-2.52 0-3.162-.327a3 3 0 0 1-1.311-1.311C3 18.72 3 17.88 3 16.2V7.8c0-1.68 0-2.52.327-3.162a3 3 0 0 1 1.311-1.311C5.28 3 6.12 3 7.8 3h3.212c.733 0 1.1 0 1.446.083.306.073.598.195.867.36.303.185.562.444 1.08.963l5.19 5.188c.518.519.777.778.963 1.081.164.269.286.561.36.867.082.346.082.713.082 1.446"
+    />
+  </svg>
+);
+export default SvgStickerSquare;

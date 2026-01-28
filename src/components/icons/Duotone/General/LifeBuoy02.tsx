@@ -1,0 +1,25 @@
+import * as React from "react";
+import type { SVGProps } from "react";
+const SvgLifeBuoy02 = (props: SVGProps<SVGSVGElement>) => (
+  <svg
+    xmlns="http://www.w3.org/2000/svg"
+    width="1em"
+    height="1em"
+    fill="none"
+    viewBox="0 0 24 24"
+    role="img"
+    {...props}
+  >
+    <g fill="currentColor" opacity={0.12}>
+      <path d="M15.536 15.536A4.98 4.98 0 0 1 12 17c-1.38 0-2.63-.56-3.536-1.464L4.93 19.07c3.905 3.905 10.237 3.905 14.142 0zM8.465 8.464A4.98 4.98 0 0 1 12 7c1.38 0 2.63.56 3.536 1.464L19.07 4.93c-3.905-3.905-10.237-3.905-14.142 0z" />
+    </g>
+    <path
+      stroke="currentColor"
+      strokeLinecap="round"
+      strokeLinejoin="round"
+      strokeWidth={2}
+      d="M8.464 8.464 4.93 4.93m0 14.142 3.535-3.536m7.072 0 3.535 3.536m0-14.142-3.536 3.535M22 12c0 5.523-4.477 10-10 10S2 17.523 2 12 6.477 2 12 2s10 4.477 10 10m-5 0a5 5 0 1 1-10 0 5 5 0 0 1 10 0"
+    />
+  </svg>
+);
+export default SvgLifeBuoy02;
