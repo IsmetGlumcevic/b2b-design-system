@@ -10,31 +10,45 @@
      COLORS - Brand Colors
      =========================== */
 
-  /* Primary Brand Color (Blue) */
-  --color-primary-50: #eff6ff;
-  --color-primary-100: #dbeafe;
-  --color-primary-200: #bfdbfe;
-  --color-primary-300: #93c5fd;
-  --color-primary-400: #60a5fa;
-  --color-primary-500: #3b82f6;    /* Main brand color */
-  --color-primary-600: #2563eb;
-  --color-primary-700: #1d4ed8;
-  --color-primary-800: #1e40af;
-  --color-primary-900: #1e3a8a;
-  --color-primary-950: #172554;
+  /* Primary Brand Color (Red) */
+  --color-primary-50: #fef2f2;
+  --color-primary-100: #fee2e2;
+  --color-primary-200: #fecaca;
+  --color-primary-300: #fca5a5;
+  --color-primary-400: #f87171;
+  --color-primary-500: #ed1c24;    /* Main brand color */
+  --color-primary-600: #d71921;
+  --color-primary-700: #b91c1c;
+  --color-primary-800: #991b1b;
+  --color-primary-900: #7f1d1d;
+  --color-primary-950: #450a0a;
 
-  /* Secondary/Accent Color (Green) */
-  --color-secondary-50: #f0fdf4;
-  --color-secondary-100: #dcfce7;
-  --color-secondary-200: #bbf7d0;
-  --color-secondary-300: #86efac;
-  --color-secondary-400: #4ade80;
-  --color-secondary-500: #22c55e;   /* Accent color */
-  --color-secondary-600: #16a34a;
-  --color-secondary-700: #15803d;
-  --color-secondary-800: #166534;
-  --color-secondary-900: #14532d;
-  --color-secondary-950: #052e16;
+  /* Primary - Interactive States */
+  --color-primary-content: #ffffff;           /* Text color on primary background */
+  --color-primary-hover: #d71921;             /* Hover state (600) */
+  --color-primary-active: #b91c1c;            /* Active/pressed state (700) */
+  --color-primary-light: #fee2e2;             /* Light variant for backgrounds (100) */
+  --color-primary-dark: #7f1d1d;              /* Dark variant (900) */
+
+  /* Secondary/Accent Color (Dark Gray/Black) */
+  --color-secondary-50: #f9fafb;
+  --color-secondary-100: #f3f4f6;
+  --color-secondary-200: #e5e7eb;
+  --color-secondary-300: #d1d5db;
+  --color-secondary-400: #9ca3af;
+  --color-secondary-500: #6b7280;
+  --color-secondary-600: #4b5563;
+  --color-secondary-700: #374151;
+  --color-secondary-800: #1f2937;   /* Main secondary color */
+  --color-secondary-900: #111827;
+  --color-secondary-950: #000000;
+
+  /* Secondary - Interactive States */
+  --color-secondary-content: #ffffff;         /* Text color on secondary background */
+  --color-secondary-hover: #374151;           /* Hover state (700) */
+  --color-secondary-active: #4b5563;          /* Active/pressed state (600) */
+  --color-secondary-light: #f3f4f6;           /* Light variant for backgrounds (100) */
+  --color-secondary-dark: #000000;            /* Dark variant (950) */
 
   /* Neutral/Gray Scale */
   --color-neutral-50: #f9fafb;
@@ -45,7 +59,7 @@
   --color-neutral-500: #6b7280;
   --color-neutral-600: #4b5563;
   --color-neutral-700: #374151;
-  --color-neutral-800: #1f2937;
+  --color-neutral-800: #1f2937;   
   --color-neutral-900: #111827;
   --color-neutral-950: #030712;
 
@@ -284,13 +298,33 @@
 
   /* Header */
   --header-height: 80px;
+  --header-height-mobile: 64px;
   --header-bg: var(--color-bg-primary);
   --header-border: var(--color-border-primary);
   --header-shadow: var(--shadow-sm);
+  --header-top-bar-height: 40px;
+  --header-logo-width: 140px;
+  --header-logo-width-mobile: 100px;
+
+  /* Mobile Menu */
+  --mobile-menu-width: 320px;
+
+  /* Cart Badge */
+  --cart-badge-size: 18px;
 
   /* Footer */
   --footer-bg: var(--color-neutral-900);
   --footer-text: var(--color-neutral-300);
+  --footer-text-secondary: var(--color-neutral-400);
+  --footer-text-heading: var(--color-text-inverse);
+  --footer-border: var(--color-neutral-700);
+  --footer-link-hover: var(--color-text-inverse);
+  --footer-padding-y: var(--spacing-20);
+  --footer-padding-y-mobile: var(--spacing-16);
+  --footer-bottom-padding-y: var(--spacing-6);
+  --footer-column-gap: var(--spacing-8);
+  --footer-social-icon-size: 20px;
+  --footer-payment-icon-height: 24px;
 
   /* Sidebar */
   --sidebar-width: 280px;
@@ -333,6 +367,96 @@
   /* Product Card */
   --product-card-width: 280px;
   --product-card-image-height: 200px;
+
+  /* Tooltip */
+  --tooltip-bg: var(--color-neutral-900);
+  --tooltip-text: var(--color-text-inverse);
+  --tooltip-shadow: var(--shadow-md);
+  --tooltip-radius: var(--radius-md);
+  --tooltip-padding-x: var(--spacing-3);
+  --tooltip-padding-y: var(--spacing-2);
+  --tooltip-arrow-size: 6px;
+  --tooltip-offset: var(--spacing-2);
+  --tooltip-max-width: 280px;
+
+  /* Alert */
+  --alert-radius: var(--radius-lg);
+  --alert-padding: var(--spacing-4);
+  --alert-icon-size: 20px;
+  --alert-success-bg: var(--color-success-50);
+  --alert-success-border: var(--color-success-500);
+  --alert-success-text: var(--color-success-700);
+  --alert-success-icon: var(--color-success-600);
+  --alert-error-bg: var(--color-error-50);
+  --alert-error-border: var(--color-error-500);
+  --alert-error-text: var(--color-error-700);
+  --alert-error-icon: var(--color-error-600);
+  --alert-warning-bg: var(--color-warning-50);
+  --alert-warning-border: var(--color-warning-500);
+  --alert-warning-text: var(--color-warning-700);
+  --alert-warning-icon: var(--color-warning-600);
+  --alert-info-bg: var(--color-info-50);
+  --alert-info-border: var(--color-info-500);
+  --alert-info-text: var(--color-info-700);
+  --alert-info-icon: var(--color-info-600);
+
+  /* Toast */
+  --toast-radius: var(--radius-lg);
+  --toast-padding: var(--spacing-4);
+  --toast-shadow: var(--shadow-lg);
+  --toast-max-width: 400px;
+  --toast-min-width: 300px;
+  --toast-offset: var(--spacing-4);
+
+  /* LoadingSpinner */
+  --spinner-size-sm: 16px;
+  --spinner-size-md: 24px;
+  --spinner-size-lg: 32px;
+  --spinner-size-xl: 48px;
+  --spinner-border-width: 2px;
+  --spinner-color: var(--color-primary-500);
+  --spinner-track-color: var(--color-neutral-200);
+
+  /* Skeleton */
+  --skeleton-bg: var(--color-neutral-200);
+  --skeleton-highlight: var(--color-neutral-100);
+
+  /* ProgressBar */
+  --progress-height-sm: 4px;
+  --progress-height-md: 8px;
+  --progress-height-lg: 12px;
+  --progress-radius: var(--radius-full);
+
+  /* Divider */
+  --divider-color: var(--color-border-primary);
+  --divider-weight-light: 1px;
+  --divider-weight-medium: 2px;
+  --divider-weight-heavy: 4px;
+
+  /* Avatar */
+  --avatar-size-xs: 24px;
+  --avatar-size-sm: 32px;
+  --avatar-size-md: 40px;
+  --avatar-size-lg: 48px;
+  --avatar-size-xl: 64px;
+  --avatar-size-2xl: 80px;
+  --avatar-bg: var(--color-neutral-200);
+  --avatar-text: var(--color-neutral-600);
+  --avatar-border: var(--color-border-primary);
+
+  /* Chip */
+  --chip-height-sm: 24px;
+  --chip-height-md: 32px;
+  --chip-height-lg: 40px;
+  --chip-radius: var(--radius-full);
+
+  /* Icon */
+  --icon-size-xs: 12px;
+  --icon-size-sm: 16px;
+  --icon-size-md: 20px;
+  --icon-size-lg: 24px;
+  --icon-size-xl: 32px;
+  --icon-size-2xl: 40px;
 }
 
 /* ============================================
@@ -376,4 +500,94 @@ body {
 ::selection {
   background-color: var(--color-primary-200);
   color: var(--color-primary-900);
+}
+
+/* ============================================
+   COMPONENT ANIMATIONS
+   ============================================ */
+
+/* Skeleton wave animation */
+.skeleton-wave {
+  position: relative;
+  overflow: hidden;
+}
+
+.skeleton-wave::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  transform: translateX(-100%);
+  background: linear-gradient(
+    90deg,
+    transparent,
+    var(--skeleton-highlight),
+    transparent
+  );
+  animation: skeleton-wave 1.5s infinite;
+}
+
+@keyframes skeleton-wave {
+  100% {
+    transform: translateX(100%);
+  }
+}
+
+/* Progress bar striped pattern */
+.progress-striped {
+  background-image: linear-gradient(
+    45deg,
+    rgba(255, 255, 255, 0.15) 25%,
+    transparent 25%,
+    transparent 50%,
+    rgba(255, 255, 255, 0.15) 50%,
+    rgba(255, 255, 255, 0.15) 75%,
+    transparent 75%,
+    transparent
+  );
+  background-size: 1rem 1rem;
+}
+
+/* Progress bar animated stripes */
+.progress-animated {
+  animation: progress-stripes 1s linear infinite;
+}
+
+@keyframes progress-stripes {
+  0% {
+    background-position: 1rem 0;
+  }
+  100% {
+    background-position: 0 0;
+  }
+}
+
+/* Progress bar indeterminate */
+.progress-indeterminate {
+  width: 30% !important;
+  animation: progress-indeterminate 1.5s ease-in-out infinite;
+}
+
+@keyframes progress-indeterminate {
+  0% {
+    transform: translateX(-100%);
+  }
+  50% {
+    transform: translateX(233%);
+  }
+  100% {
+    transform: translateX(-100%);
+  }
+}
+
+/* Screen reader only utility */
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border-width: 0;
 }
