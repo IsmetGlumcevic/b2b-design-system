@@ -1,0 +1,16 @@
+export {
+  WelcomeContactBlock,
+  WelcomeHeader,
+  DepartmentContactCard,
+  SalesRepresentativeCard,
+  ContactItem,
+  type WelcomeContactBlockProps,
+  type WelcomeHeaderProps,
+  type DepartmentContactCardProps,
+  type SalesRepresentativeCardProps,
+  type SalesRepresentativeProps,
+  type ContactItemProps,
+  type ContactItemData,
+  type DepartmentContact,
+  type ContactType,
+} from './WelcomeContactBlock'

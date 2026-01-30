@@ -24,6 +24,18 @@ import {
 } from '@/src/components/ui/layout/footer'
 import type { FooterLink, SocialLink, PaymentMethod } from '@/src/components/ui/layout/footer'
 import { Button } from '@/src/components/ui/buttons'
+import {
+  SearchModal,
+  type RecentSearch,
+  type TrendingSearch,
+} from '@/src/components/search'
+import {
+  WelcomeContactBlock,
+  type DepartmentContact,
+  type SalesRepresentativeProps,
+} from '@/src/components/ui/WelcomeContactBlock'
+import { Tabs, TabsList, TabsTrigger, TabsContent } from '@/src/components/ui/Tabs'
+import { ProductTable, type ProductTableItem } from '@/src/components/ui/ProductTable'
 
 // Sample categories for navigation
 const categories = [
@@ -107,6 +119,131 @@ const legalLinks: FooterLink[] = [
   { label: 'Uvjeti korištenja', href: '/uvjeti' },
   { label: 'Kolačići', href: '/kolacici' },
 ]
+
+// Search Modal mock data
+const recentSearches: RecentSearch[] = [
+  { id: '1', query: 'LED rasvjeta', timestamp: new Date(Date.now() - 1000 * 60 * 5) },
+  { id: '2', query: 'Kablovi NYM', timestamp: new Date(Date.now() - 1000 * 60 * 60) },
+  { id: '3', query: 'Osigurači B16', timestamp: new Date(Date.now() - 1000 * 60 * 60 * 24) },
+]
+
+const trendingSearches: TrendingSearch[] = [
+  { id: '1', query: 'Solarna oprema' },
+  { id: '2', query: 'Elektro ormarići' },
+  { id: '3', query: 'LED paneli' },
+  { id: '4', query: 'Utičnice Schuko' },
+]
+
+// Welcome Contact Block data
+const welcomeDepartments: DepartmentContact[] = [
+  {
+    title: 'Prodaja',
+    contacts: [
+      { type: 'phone', value: '+381 11 123-4567' },
+      { type: 'email', value: 'sales@elektro.hr' },
+      { type: 'whatsapp', value: '+381 64 123-4569' },
+    ],
+  },
+  {
+    title: 'Računovodstvo',
+    contacts: [
+      { type: 'phone', value: '+381 11 123-4568' },
+      { type: 'email', value: 'accounting@elektro.hr' },
+    ],
+  },
+]
+
+const welcomeRepresentatives: SalesRepresentativeProps[] = [
+  {
+    name: 'Darija Zdrilić',
+    role: 'Komercijalista',
+    avatarSrc: 'https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=100&h=100&fit=crop&crop=face',
+    phone: '+385 23 790 004',
+    email: 'darija.zdrilic@aleta.hr',
+  },
+]
+
+// Sample products for ProductTable
+const sampleProducts: ProductTableItem[] = [
+  {
+    sifra: '1851699',
+    naziv: 'RG4001M2 I SKLOPKA OBICNA 10A 2M CRNA',
+    proizvodac: 'LEGRAND',
+    zaliha: 433,
+    jedinica: 'kom',
+    cijena: 1.94,
+    staraCijena: 2.99,
+    valuta: '€',
+  },
+  {
+    sifra: '1848994',
+    naziv: 'R4702G I NOSIVI OKVIR 2M NOŽICE',
+    proizvodac: 'LEGRAND',
+    zaliha: 4564,
+    jedinica: 'kom',
+    cijena: 0.61,
+    staraCijena: 0.94,
+    valuta: '€',
+  },
+  {
+    sifra: '1014305',
+    naziv: 'Kabel koax RG 6 75 Ohm',
+    proizvodac: 'KABEL',
+    zaliha: 13871,
+    jedinica: 'm',
+    cijena: 0.14,
+    staraCijena: 0.25,
+    valuta: '€',
+  },
+  {
+    sifra: '1849004',
+    naziv: 'RW4141 I UTIC 2P+E 16A DJ ZAS BIJELA',
+    proizvodac: 'LEGRAND',
+    zaliha: 4109,
+    jedinica: 'kom',
+    cijena: 2.07,
+    staraCijena: 3.18,
+    valuta: '€',
+  },
+  {
+    sifra: '1628899',
+    naziv: '1SPE007717F0321 I MISTRAL41W,PROZIRNA VRATA 8M, 12SM',
+    opis: 'NADŽBUKNI PLASTIČNI RAZVODNI ORMAR MISTRAL41W,PROZ',
+    proizvodac: 'ABB',
+    zaliha: 7,
+    jedinica: 'kom',
+    cijena: 10.49,
+    staraCijena: 15.43,
+    valuta: '€',
+  },
+  {
+    sifra: '1561834',
+    naziv: 'EA2080 I POCINČANA PLOČA ZA AM2/IS2',
+    opis: 'POCINČANA PLOČA ZA METALNI RAZVODNI ORMAR AM2/IS2,',
+    proizvodac: 'ABB',
+    zaliha: 45,
+    jedinica: 'kom',
+    cijena: 124.09,
+    staraCijena: 165.45,
+    valuta: '€',
+  },
+  {
+    sifra: '1602483',
+    naziv: 'Stopica FASTON Ž 1,5-2,5mm2 6,3X0,8 plava (100)',
+    proizvodac: 'HAUPA',
+    zaliha: 1740,
+    jedinica: 'kom',
+    cijena: 0.08,
+    staraCijena: 0.12,
+    valuta: '€',
+  },
+]
+
+// Products for different tabs
+const noviProizvodi: ProductTableItem[] = sampleProducts.slice(0, 4)
+const akcijskiProizvodi: ProductTableItem[] = sampleProducts.slice(2, 6)
+const preporuceniProizvodi: ProductTableItem[] = sampleProducts.slice(1, 5)
+const najprodavanijiProizvodi: ProductTableItem[] = [...sampleProducts].reverse().slice(0, 5)
 
 export default function Home() {
   const [searchOpen, setSearchOpen] = useState(false)
@@ -212,6 +349,54 @@ export default function Home() {
             </div>
           </div>
         </div>
+
+        {/* Welcome Contact Block Section */}
+        <div className="mx-auto w-full max-w-5xl border-t border-[var(--color-border-primary)] pt-16">
+          <WelcomeContactBlock
+            userName="ismet glumcevic"
+            departments={welcomeDepartments}
+            representatives={welcomeRepresentatives}
+          />
+        </div>
+
+        {/* Product Table with Tabs Section */}
+        <div className="mx-auto w-full max-w-7xl border-t border-[var(--color-border-primary)] pt-16 pb-16">
+          <h2 className="mb-8 text-2xl font-bold text-[var(--color-text-primary)]">
+            Proizvodi
+          </h2>
+          <Tabs defaultValue="novi">
+            <TabsList>
+              <TabsTrigger value="novi">Novi proizvodi</TabsTrigger>
+              <TabsTrigger value="akcija">Akcija</TabsTrigger>
+              <TabsTrigger value="preporuceno">Preporučeno</TabsTrigger>
+              <TabsTrigger value="najprodavanije">Najprodavanije</TabsTrigger>
+            </TabsList>
+            <TabsContent value="novi">
+              <ProductTable
+                items={noviProizvodi}
+                onAddToCart={(item, qty) => console.log('Dodano u korpu:', qty, 'x', item.naziv)}
+              />
+            </TabsContent>
+            <TabsContent value="akcija">
+              <ProductTable
+                items={akcijskiProizvodi}
+                onAddToCart={(item, qty) => console.log('Dodano u korpu:', qty, 'x', item.naziv)}
+              />
+            </TabsContent>
+            <TabsContent value="preporuceno">
+              <ProductTable
+                items={preporuceniProizvodi}
+                onAddToCart={(item, qty) => console.log('Dodano u korpu:', qty, 'x', item.naziv)}
+              />
+            </TabsContent>
+            <TabsContent value="najprodavanije">
+              <ProductTable
+                items={najprodavanijiProizvodi}
+                onAddToCart={(item, qty) => console.log('Dodano u korpu:', qty, 'x', item.naziv)}
+              />
+            </TabsContent>
+          </Tabs>
+        </div>
       </main>
 
       {/* Footer */}
@@ -268,6 +453,23 @@ export default function Home() {
           colorScheme="dark"
         />
       </Footer>
+
+      {/* Search Modal */}
+      <SearchModal
+        isOpen={searchOpen}
+        onClose={() => setSearchOpen(false)}
+        recentSearches={recentSearches}
+        trendingSearches={trendingSearches}
+        onSearch={(query) => {
+          console.log('Search query:', query)
+        }}
+        onQuickAddToCart={(productId) => {
+          console.log('Quick add to cart:', productId)
+        }}
+        onClearRecentSearch={(id) => {
+          console.log('Clear recent search:', id)
+        }}
+      />
     </div>
   )
 }
