@@ -62,6 +62,31 @@ export default function ComponentNameShowcase() {
         <CodeBlock code={`<ComponentName leftIcon="plus">With Icon</ComponentName>`} />
       </ShowcaseSection>
 
+      {/* Responsive Section */}
+      <ShowcaseSection title="Responsive Design" description="Prilagođeno za sve uređaje">
+        <div className="space-y-4">
+          <div className="p-4 bg-[var(--color-bg-tertiary)] rounded">
+            <p className="text-sm font-mono text-[var(--color-text-secondary)] mb-2">
+              📱 Mobile (375px - 767px)
+            </p>
+            <ComponentName className="w-full sm:w-auto">Mobile Version</ComponentName>
+          </div>
+          <div className="p-4 bg-[var(--color-bg-tertiary)] rounded">
+            <p className="text-sm font-mono text-[var(--color-text-secondary)] mb-2">
+              📱 Tablet (768px - 1023px)
+            </p>
+            <ComponentName className="hidden sm:block lg:hidden">Tablet Version</ComponentName>
+          </div>
+          <div className="p-4 bg-[var(--color-bg-tertiary)] rounded">
+            <p className="text-sm font-mono text-[var(--color-text-secondary)] mb-2">
+              💻 Desktop (1024px+)
+            </p>
+            <ComponentName className="hidden lg:block">Desktop Version</ComponentName>
+          </div>
+        </div>
+        <CodeBlock code={`<ComponentName className="w-full sm:w-auto lg:max-w-md">Responsive</ComponentName>`} />
+      </ShowcaseSection>
+
       {/* Props Table */}
       <ShowcaseSection title="Props" description="Dostupni props">
         <PropsTable

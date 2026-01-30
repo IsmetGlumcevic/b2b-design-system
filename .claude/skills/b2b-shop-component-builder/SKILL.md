@@ -133,6 +133,68 @@ import { IconSearch, IconCart, IconUser } from '@/lib/icons'
 <IconSearch className="w-5 h-5 text-[var(--color-icon-primary)]" />
 ```
 
+**E. Responsive Design (OBAVEZNO!):**
+
+**SVAKA KOMPONENTA MORA biti prilagođena za sve uređaje:**
+
+```typescript
+// Tailwind breakpoints (Mobile-first pristup)
+// sm:  640px  (Tablet portrait)
+// md:  768px  (Tablet landscape)
+// lg:  1024px (Desktop)
+// xl:  1280px (Large desktop)
+// 2xl: 1536px (Extra large)
+
+// Primjer responsive komponente:
+<div className="
+  flex flex-col          /* Mobile: vertikalni stack */
+  gap-4                  /* Mobile: manji gap */
+  p-4                    /* Mobile: manji padding */
+
+  sm:flex-row            /* Tablet: horizontalni layout */
+  sm:gap-6
+  sm:p-6
+
+  lg:gap-8               /* Desktop: veći spacing */
+  lg:p-8
+">
+  {/* Sadržaj */}
+</div>
+
+// Typography responsive:
+<h1 className="
+  text-2xl               /* Mobile: 24px */
+  sm:text-3xl            /* Tablet: 30px */
+  lg:text-4xl            /* Desktop: 36px */
+">
+  Naslov
+</h1>
+
+// Grid responsive:
+<div className="
+  grid
+  grid-cols-1            /* Mobile: 1 kolona */
+  sm:grid-cols-2         /* Tablet: 2 kolone */
+  lg:grid-cols-3         /* Desktop: 3 kolone */
+  xl:grid-cols-4         /* Large: 4 kolone */
+  gap-4
+">
+  {/* Cards */}
+</div>
+```
+
+**Testiranje na različitim uređajima:**
+- 📱 **Mobile:** 375px (iPhone SE), 390px (iPhone 12/13/14)
+- 📱 **Tablet:** 768px (iPad), 820px (iPad Air)
+- 💻 **Desktop:** 1280px, 1440px, 1920px
+
+**Pravila:**
+1. **Mobile-first** - dizajniraj prvo za mobile, onda scale up
+2. **Testiranje** - provjeri na svim breakpoints-ima
+3. **Touch targets** - minimum 44x44px za mobile (dugmad, linkovi)
+4. **Hidden elements** - koristi `hidden sm:block` za desktop-only elemente
+5. **Container width** - koristi `max-w-` klase za kontrolu širine
+
 ---
 
 ### 4. KREIRAJ SHOWCASE STRANICU (OBAVEZNO!)
@@ -168,8 +230,11 @@ Provjeri da je SVE napravljeno:
 - [ ] ✅ CSS varijable korištene (ne hardcoded)
 - [ ] ✅ Untitled Icons Pro korišten
 - [ ] ✅ Server/Client odluka pravilna
-- [ ] ✅ Responsive design (mobile-first)
-- [ ] ✅ Accessibility (ARIA labels)
+- [ ] ✅ **Responsive design - testiran na:**
+  - [ ] 📱 Mobile (375px, 390px)
+  - [ ] 📱 Tablet (768px, 820px)
+  - [ ] 💻 Desktop (1280px, 1440px, 1920px)
+- [ ] ✅ Accessibility (ARIA labels, keyboard navigation)
 
 ---
 
@@ -198,8 +263,12 @@ Provjeri da je SVE napravljeno:
 3. **CSS varijable su obavezne** - nikad hardcode-uj boje ili spacing
 4. **Untitled Icons Pro** - sve ikonice iz ovog paketa
 5. **TypeScript strict mode** - nikad koristi `any`, uvijek tipizuj
-6. **Mobile-first** - responzivnost je obavezna
-7. **Accessibility** - dodaj ARIA labels gdje je potrebno
+6. **RESPONSIVE DESIGN (OBAVEZNO!)** - svaka komponenta MORA raditi na:
+   - 📱 **Mobile** (375px - 767px)
+   - 📱 **Tablet** (768px - 1023px)
+   - 💻 **Desktop** (1024px+)
+   - Koristi mobile-first pristup (dizajniraj prvo za mobile)
+7. **Accessibility** - dodaj ARIA labels, keyboard navigation, focus states
 8. **SHOWCASE JE OBAVEZAN** - svaka komponenta MORA imati showcase stranicu!
 9. **Template fajlovi** - koristi templates/ folder za brže kreiranje
 
@@ -247,8 +316,11 @@ Dobro implementirana komponenta ima:
 - ✅ TypeScript tipove (strict mode)
 - ✅ CSS varijable za sve boje/spacing
 - ✅ Untitled Icons Pro za ikonice
-- ✅ Responsive design
-- ✅ Accessibility
+- ✅ **Responsive design testirano na:**
+  - 📱 Mobile (375px, 390px, 414px)
+  - 📱 Tablet (768px, 820px, 1024px)
+  - 💻 Desktop (1280px, 1440px, 1920px)
+- ✅ Accessibility (ARIA, keyboard, focus states)
 - ✅ Reusability (clear props interface)
 - ✅ ISR friendly (Server Component gdje je moguće)
 - ✅ **Showcase stranica sa svim varijantama**
