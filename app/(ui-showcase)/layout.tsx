@@ -34,6 +34,16 @@ const navigation = {
     { name: 'Toast', href: '/components/toast' },
     { name: 'Tooltip', href: '/components/tooltip' },
   ],
+  'Mobile (iOS/Android)': [
+    { name: 'Overview', href: '/mobile' },
+    { name: 'Komponente', href: '/mobile/components' },
+    { name: 'Home Screen', href: '/mobile/home-screen' },
+    { name: 'Categories', href: '/mobile/categories', disabled: true },
+    { name: 'Product List', href: '/mobile/product-list', disabled: true },
+    { name: 'Product Details', href: '/mobile/product-details', disabled: true },
+    { name: 'Cart', href: '/mobile/cart', disabled: true },
+    { name: 'Account', href: '/mobile/account', disabled: true },
+  ],
 }
 
 export default function ShowcaseLayout({
@@ -61,12 +71,19 @@ export default function ShowcaseLayout({
               <ul className="space-y-1">
                 {items.map((item) => (
                   <li key={item.href}>
-                    <Link
-                      href={item.href}
-                      className="block rounded-md px-3 py-2 text-sm text-[var(--color-text-secondary)] transition-colors hover:bg-[var(--color-bg-tertiary)] hover:text-[var(--color-text-primary)]"
-                    >
-                      {item.name}
-                    </Link>
+                    {'disabled' in item && item.disabled ? (
+                      <span className="block cursor-not-allowed rounded-md px-3 py-2 text-sm text-[var(--color-text-tertiary)] opacity-50">
+                        {item.name}
+                        <span className="ml-1 text-[10px]">(uskoro)</span>
+                      </span>
+                    ) : (
+                      <Link
+                        href={item.href}
+                        className="block rounded-md px-3 py-2 text-sm text-[var(--color-text-secondary)] transition-colors hover:bg-[var(--color-bg-tertiary)] hover:text-[var(--color-text-primary)]"
+                      >
+                        {item.name}
+                      </Link>
+                    )}
                   </li>
                 ))}
               </ul>
