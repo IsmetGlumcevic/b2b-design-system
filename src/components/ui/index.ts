@@ -262,6 +262,14 @@ export type {
 export { Pagination } from './Pagination'
 export type { PaginationProps, PaginationVariant, PaginationSize } from './Pagination'
 
+export { MegaMenu, MegaMenuCategories, MegaMenuBrands } from './MegaMenu'
+export type {
+  MegaMenuProps,
+  MegaMenuCategoriesProps,
+  MegaMenuBrandsProps,
+  ColorScheme as MegaMenuColorScheme,
+} from './MegaMenu'
+
 // -----------------------------------------------------------------------------
 // Empty State Components
 // -----------------------------------------------------------------------------

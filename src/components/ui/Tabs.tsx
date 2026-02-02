@@ -161,7 +161,14 @@ export const TabsList = forwardRef<HTMLDivElement, TabsListProps>(
           'inline-flex shrink-0',
           'border-[var(--color-border-primary)]',
           orientation === 'horizontal'
-            ? 'flex-row items-center border-b'
+            ? [
+                'flex-row items-center border-b',
+                // Mobile scroll
+                'w-full overflow-x-auto',
+                // Hide scrollbar but keep functionality
+                'scrollbar-none [-ms-overflow-style:none] [scrollbar-width:none]',
+                '[&::-webkit-scrollbar]:hidden',
+              ]
             : 'flex-col border-r',
           className
         )}

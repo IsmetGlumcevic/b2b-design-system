@@ -6,7 +6,7 @@ import { cn } from '@/src/lib/utils'
 import ChevronDown from '@/src/components/ui/icons/Line/Arrows/ChevronDown'
 import XClose from '@/src/components/ui/icons/Line/General/XClose'
 import { IconButton } from '@/src/components/ui/buttons/IconButton'
-import type { MobileMenuProps, Category } from './types'
+import type { MobileMenuProps, Category, Brand, Service } from './types'
 
 /**
  * MobileMenu - Mobile navigation drawer (Client Component)
@@ -20,7 +20,15 @@ import type { MobileMenuProps, Category } from './types'
  *   categories={categories}
  * />
  */
-export function MobileMenu({ isOpen, onClose, categories, user, contact }: MobileMenuProps) {
+export function MobileMenu({
+  isOpen,
+  onClose,
+  categories,
+  brands,
+  services,
+  user,
+  contact,
+}: MobileMenuProps) {
   const menuRef = useRef<HTMLDivElement>(null)
   const [expandedCategories, setExpandedCategories] = useState<string[]>([])
 
@@ -181,7 +189,140 @@ export function MobileMenu({ isOpen, onClose, categories, user, contact }: Mobil
 
         {/* Navigation content */}
         <nav className="flex-1 overflow-y-auto py-[var(--spacing-2)]">
-          {categories.map((category) => renderCategory(category))}
+          {/* Categories */}
+          {categories.length > 0 && (
+            <div className="border-b border-[var(--color-border-primary)] pb-[var(--spacing-2)]">
+              <p
+                className={cn(
+                  'px-[var(--spacing-4)] py-[var(--spacing-2)]',
+                  'text-[var(--font-size-xs)] font-semibold uppercase tracking-wide',
+                  'text-[var(--color-text-tertiary)]'
+                )}
+              >
+                Proizvodi
+              </p>
+              {categories.map((category) => renderCategory(category))}
+            </div>
+          )}
+
+          {/* Brands */}
+          {brands && brands.length > 0 && (
+            <div className="border-b border-[var(--color-border-primary)] py-[var(--spacing-2)]">
+              <p
+                className={cn(
+                  'px-[var(--spacing-4)] py-[var(--spacing-2)]',
+                  'text-[var(--font-size-xs)] font-semibold uppercase tracking-wide',
+                  'text-[var(--color-text-tertiary)]'
+                )}
+              >
+                Brendovi
+              </p>
+              <div className="grid grid-cols-2 gap-[var(--spacing-1)] px-[var(--spacing-4)]">
+                {brands.slice(0, 12).map((brand) => (
+                  <Link
+                    key={brand.id}
+                    href={`/brend/${brand.slug}`}
+                    onClick={onClose}
+                    className={cn(
+                      'py-[var(--spacing-2)] px-[var(--spacing-2)]',
+                      'text-[var(--font-size-sm)]',
+                      'text-[var(--color-text-primary)]',
+                      'hover:bg-[var(--color-bg-secondary)]',
+                      'rounded-[var(--radius-md)]',
+                      'transition-colors duration-150'
+                    )}
+                  >
+                    {brand.name}
+                  </Link>
+                ))}
+              </div>
+              {brands.length > 12 && (
+                <Link
+                  href="/brendovi"
+                  onClick={onClose}
+                  className={cn(
+                    'flex w-full items-center',
+                    'px-[var(--spacing-4)] py-[var(--spacing-3)]',
+                    'text-[var(--font-size-sm)] font-medium',
+                    'text-[var(--color-primary-500)]',
+                    'hover:bg-[var(--color-bg-secondary)]'
+                  )}
+                >
+                  Svi brendovi ({brands.length})
+                </Link>
+              )}
+            </div>
+          )}
+
+          {/* Services */}
+          {services && services.length > 0 && (
+            <div className="py-[var(--spacing-2)]">
+              <p
+                className={cn(
+                  'px-[var(--spacing-4)] py-[var(--spacing-2)]',
+                  'text-[var(--font-size-xs)] font-semibold uppercase tracking-wide',
+                  'text-[var(--color-text-tertiary)]'
+                )}
+              >
+                Usluge
+              </p>
+              {services.map((service) => (
+                <Link
+                  key={service.id}
+                  href={service.href}
+                  onClick={onClose}
+                  className={cn(
+                    'flex w-full items-center gap-[var(--spacing-3)]',
+                    'px-[var(--spacing-4)] py-[var(--spacing-3)]',
+                    'text-[var(--font-size-base)]',
+                    'text-[var(--color-text-primary)]',
+                    'hover:bg-[var(--color-bg-secondary)]',
+                    'transition-colors duration-150'
+                  )}
+                >
+                  {service.icon && (
+                    <span className="text-[var(--color-primary-500)]">{service.icon}</span>
+                  )}
+                  <div>
+                    <span className="font-medium">{service.title}</span>
+                    <p className="text-[var(--font-size-sm)] text-[var(--color-text-secondary)]">
+                      {service.description}
+                    </p>
+                  </div>
+                </Link>
+              ))}
+            </div>
+          )}
+
+          {/* Static links */}
+          <div className="border-t border-[var(--color-border-primary)] pt-[var(--spacing-2)]">
+            <Link
+              href="/akcije"
+              onClick={onClose}
+              className={cn(
+                'flex w-full items-center',
+                'px-[var(--spacing-4)] py-[var(--spacing-3)]',
+                'text-[var(--font-size-base)] font-medium',
+                'text-[var(--color-text-primary)]',
+                'hover:bg-[var(--color-bg-secondary)]'
+              )}
+            >
+              Akcije
+            </Link>
+            <Link
+              href="/kontakt"
+              onClick={onClose}
+              className={cn(
+                'flex w-full items-center',
+                'px-[var(--spacing-4)] py-[var(--spacing-3)]',
+                'text-[var(--font-size-base)] font-medium',
+                'text-[var(--color-text-primary)]',
+                'hover:bg-[var(--color-bg-secondary)]'
+              )}
+            >
+              Kontakt
+            </Link>
+          </div>
         </nav>
 
         {/* Footer - Contact info */}

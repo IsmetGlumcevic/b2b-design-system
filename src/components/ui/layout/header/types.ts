@@ -29,7 +29,7 @@ export interface HeaderContactInfo {
 }
 
 /**
- * Navigation category structure
+ * Navigation category structure (supports 3+ levels)
  */
 export interface Category {
   id: string
@@ -38,6 +38,32 @@ export interface Category {
   icon?: string
   children?: Category[]
   productCount?: number
+  /** Short description for mega menu display */
+  description?: string
+  /** Category image URL */
+  image?: string
+}
+
+/**
+ * Brand for mega menu brands grid
+ */
+export interface Brand {
+  id: string
+  name: string
+  slug: string
+  /** Brand logo URL */
+  logo?: string
+}
+
+/**
+ * Service item for navigation
+ */
+export interface Service {
+  id: string
+  title: string
+  description: string
+  href: string
+  icon?: ReactNode
 }
 
 /**
@@ -168,11 +194,39 @@ export interface AccountDropdownProps {
 }
 
 /**
+ * Navigation item type for mega menu behavior
+ */
+export type NavigationItemType =
+  | 'link'
+  | 'dropdown'
+  | 'megamenu-categories'
+  | 'megamenu-brands'
+
+/**
+ * Navigation item structure
+ */
+export interface NavigationItem {
+  id: string
+  name: string
+  slug: string
+  /** Type of menu to display */
+  menuType?: NavigationItemType
+  /** Children for dropdown/megamenu */
+  children?: Category[]
+}
+
+/**
  * MainNavigation - Desktop/mobile navigation
  */
 export interface MainNavigationProps {
-  /** Categories to display */
-  categories: Category[]
+  /** Navigation items to display */
+  items?: NavigationItem[]
+  /** Categories to display (legacy, use items instead) */
+  categories?: Category[]
+  /** Brands for mega menu */
+  brands?: Brand[]
+  /** Services for navigation */
+  services?: Service[]
   /** Mobile breakpoint */
   mobileBreakpoint?: 'md' | 'lg' | 'xl'
   /** Custom trigger label */
@@ -207,6 +261,10 @@ export interface MobileMenuProps {
   onClose: () => void
   /** Categories to display */
   categories: Category[]
+  /** Brands to display */
+  brands?: Brand[]
+  /** Services to display */
+  services?: Service[]
   /** User data (optional) */
   user?: HeaderUser | null
   /** Contact info (optional) */
