@@ -14,6 +14,7 @@ export interface MobileCategoryItem {
 interface MobileCategorySrollerProps {
   categories: MobileCategoryItem[]
   onCategoryClick?: (category: MobileCategoryItem) => void
+  onViewAll?: () => void
   title?: string
   className?: string
   variant?: 'circle' | 'square' | 'card'
@@ -22,6 +23,7 @@ interface MobileCategorySrollerProps {
 export function MobileCategoryScroller({
   categories,
   onCategoryClick,
+  onViewAll,
   title,
   className,
   variant = 'circle',
@@ -43,9 +45,14 @@ export function MobileCategoryScroller({
       {title && (
         <div className="mb-3 flex items-center justify-between px-4">
           <h3 className="text-base font-semibold text-neutral-900">{title}</h3>
-          <button className="text-sm font-medium text-[var(--color-primary-500)]">
-            Sve
-          </button>
+          {onViewAll && (
+            <button
+              onClick={onViewAll}
+              className="text-sm font-medium text-[var(--color-primary-500)] active:opacity-70"
+            >
+              Sve
+            </button>
+          )}
         </div>
       )}
       <div className="flex gap-3 overflow-x-auto px-4 pb-2 scrollbar-hide">

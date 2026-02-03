@@ -23,6 +23,8 @@ interface MobileProductCardProps {
   onFavorite?: () => void
   isFavorite?: boolean
   variant?: 'vertical' | 'horizontal' | 'compact'
+  /** When true, card will fill available width (for grid layouts) */
+  fullWidth?: boolean
   className?: string
 }
 
@@ -70,6 +72,7 @@ export function MobileProductCard({
   onFavorite,
   isFavorite = false,
   variant = 'vertical',
+  fullWidth = false,
   className,
 }: MobileProductCardProps) {
   const currency = product.currency || '€'
@@ -184,7 +187,8 @@ export function MobileProductCard({
     <div
       onClick={onPress}
       className={cn(
-        'w-40 shrink-0 overflow-hidden rounded-xl bg-white shadow-sm active:bg-neutral-50',
+        'overflow-hidden rounded-xl bg-white shadow-sm active:bg-neutral-50',
+        fullWidth ? 'w-full' : 'w-40 shrink-0',
         className
       )}
     >

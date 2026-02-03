@@ -12,6 +12,7 @@ export interface MobileBrand {
 interface MobileBrandScrollerProps {
   brands: MobileBrand[]
   onBrandClick?: (brand: MobileBrand) => void
+  onViewAll?: () => void
   title?: string
   className?: string
 }
@@ -19,6 +20,7 @@ interface MobileBrandScrollerProps {
 export function MobileBrandScroller({
   brands,
   onBrandClick,
+  onViewAll,
   title,
   className,
 }: MobileBrandScrollerProps) {
@@ -27,9 +29,14 @@ export function MobileBrandScroller({
       {title && (
         <div className="mb-3 flex items-center justify-between px-4">
           <h3 className="text-base font-semibold text-neutral-900">{title}</h3>
-          <button className="text-sm font-medium text-[var(--color-primary-500)]">
-            Sve
-          </button>
+          {onViewAll && (
+            <button
+              onClick={onViewAll}
+              className="text-sm font-medium text-[var(--color-primary-500)] active:opacity-70"
+            >
+              Sve
+            </button>
+          )}
         </div>
       )}
       <div className="flex gap-3 overflow-x-auto px-4 pb-2 scrollbar-hide">
