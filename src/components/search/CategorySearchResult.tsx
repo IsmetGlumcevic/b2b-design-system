@@ -15,6 +15,8 @@ export interface CategorySearchResultProps extends Omit<HTMLAttributes<HTMLDivEl
   query?: string
   /** Click callback */
   onSelect?: (categoryId: string) => void
+  /** Navigate to category page callback */
+  onNavigate?: (categoryId: string) => void
 }
 
 /* ============================================
@@ -32,9 +34,10 @@ export interface CategorySearchResultProps extends Omit<HTMLAttributes<HTMLDivEl
  * />
  */
 export const CategorySearchResult = forwardRef<HTMLDivElement, CategorySearchResultProps>(
-  ({ category, query, onSelect, className, ...props }, ref) => {
+  ({ category, query, onSelect, onNavigate, className, ...props }, ref) => {
     const handleClick = () => {
       onSelect?.(category.id)
+      onNavigate?.(category.id)
     }
 
     return (

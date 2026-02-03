@@ -68,7 +68,7 @@ export function MegaMenuBrands({
         {brands.map((brand) => (
           <Link
             key={brand.id}
-            href={`/brend/${brand.slug}`}
+            href={`/brendovi/${brand.slug}`}
             onClick={onClose}
             className={cn(
               'flex flex-col items-center justify-center',

@@ -32,7 +32,7 @@ export interface SearchResultsSectionProps extends HTMLAttributes<HTMLDivElement
  */
 export const SearchResultsSection = forwardRef<HTMLDivElement, SearchResultsSectionProps>(
   ({ maxItems = 5, onSeeAll, className, ...props }, ref) => {
-    const { activeTab, results, query, onQuickAddToCart } = useSearchModal()
+    const { activeTab, results, query, onQuickAddToCart, onNavigateToSearch, onNavigateToProduct, onNavigateToCategory, onNavigateToManufacturer } = useSearchModal()
 
     if (!results) return null
 
@@ -48,7 +48,10 @@ export const SearchResultsSection = forwardRef<HTMLDivElement, SearchResultsSect
                 title="Proizvodi"
                 count={total}
                 showSeeAll={total > maxItems}
-                onSeeAll={() => onSeeAll?.('products')}
+                onSeeAll={() => {
+                  onSeeAll?.('products')
+                  onNavigateToSearch?.(query)
+                }}
               />
               <div className="divide-y divide-[var(--color-border-primary)]">
                 {items.map((product) => (
@@ -57,6 +60,7 @@ export const SearchResultsSection = forwardRef<HTMLDivElement, SearchResultsSect
                     product={product}
                     query={query}
                     onQuickAdd={onQuickAddToCart}
+                    onNavigate={onNavigateToProduct}
                   />
                 ))}
               </div>
@@ -82,6 +86,7 @@ export const SearchResultsSection = forwardRef<HTMLDivElement, SearchResultsSect
                     key={category.id}
                     category={category}
                     query={query}
+                    onNavigate={onNavigateToCategory}
                   />
                 ))}
               </div>
@@ -107,6 +112,7 @@ export const SearchResultsSection = forwardRef<HTMLDivElement, SearchResultsSect
                     key={manufacturer.id}
                     manufacturer={manufacturer}
                     query={query}
+                    onNavigate={onNavigateToManufacturer}
                   />
                 ))}
               </div>

@@ -2,6 +2,7 @@
 
 import { useState } from 'react'
 import Link from 'next/link'
+import { useRouter } from 'next/navigation'
 import {
   Header,
   HeaderTopBar,
@@ -633,10 +634,32 @@ const preporuceniProizvodi: ProductTableItem[] = sampleProducts.slice(1, 5)
 const najprodavanijiProizvodi: ProductTableItem[] = [...sampleProducts].reverse().slice(0, 5)
 
 export default function Home() {
+  const router = useRouter()
   const [searchOpen, setSearchOpen] = useState(false)
 
   const handleSearchOpen = () => {
     setSearchOpen(true)
+  }
+
+  // Navigation handlers for SearchModal
+  const handleNavigateToSearch = (query: string) => {
+    setSearchOpen(false)
+    router.push(`/proizvodi?q=${encodeURIComponent(query)}`)
+  }
+
+  const handleNavigateToProduct = (productId: string) => {
+    setSearchOpen(false)
+    router.push(`/proizvod/${productId}`)
+  }
+
+  const handleNavigateToCategory = (categoryId: string) => {
+    setSearchOpen(false)
+    router.push(`/kategorija/${categoryId}`)
+  }
+
+  const handleNavigateToManufacturer = (manufacturerId: string) => {
+    setSearchOpen(false)
+    router.push(`/brendovi/${manufacturerId}`)
   }
 
   return (
@@ -878,15 +901,17 @@ export default function Home() {
         onClose={() => setSearchOpen(false)}
         recentSearches={recentSearches}
         trendingSearches={trendingSearches}
-        onSearch={(query) => {
-          console.log('Search query:', query)
-        }}
+        onSearch={handleNavigateToSearch}
         onQuickAddToCart={(productId) => {
           console.log('Quick add to cart:', productId)
         }}
         onClearRecentSearch={(id) => {
           console.log('Clear recent search:', id)
         }}
+        onNavigateToSearch={handleNavigateToSearch}
+        onNavigateToProduct={handleNavigateToProduct}
+        onNavigateToCategory={handleNavigateToCategory}
+        onNavigateToManufacturer={handleNavigateToManufacturer}
       />
     </div>
   )

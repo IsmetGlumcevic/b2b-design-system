@@ -41,7 +41,7 @@ function CategoryCard({ category, variant }: { category: CategoryItem; variant: 
   if (variant === 'image') {
     return (
       <Link
-        href={`/kategorije/${category.slug}`}
+        href={`/kategorija/${category.slug}`}
         className={cn(
           'group relative flex min-h-[200px] flex-col justify-end overflow-hidden rounded-[var(--radius-card)] bg-cover bg-center p-6 transition-all duration-300',
           'hover:shadow-lg hover:ring-2 hover:ring-[var(--color-primary-500)]',
@@ -65,7 +65,7 @@ function CategoryCard({ category, variant }: { category: CategoryItem; variant: 
   if (variant === 'minimal') {
     return (
       <Link
-        href={`/kategorije/${category.slug}`}
+        href={`/kategorija/${category.slug}`}
         className={cn(
           'group flex items-center gap-4 rounded-[var(--radius-card)] border border-[var(--color-border-primary)] bg-[var(--color-bg-primary)] p-4 transition-all',
           'hover:border-[var(--color-primary-500)] hover:bg-[var(--color-bg-elevated)] hover:shadow-md'
@@ -93,7 +93,7 @@ function CategoryCard({ category, variant }: { category: CategoryItem; variant: 
   // Default: card variant
   return (
     <Link
-      href={`/kategorije/${category.slug}`}
+      href={`/kategorija/${category.slug}`}
       className={cn(
         'group flex flex-col items-center rounded-[var(--radius-card)] border border-[var(--color-border-primary)] bg-[var(--color-bg-primary)] p-6 text-center transition-all',
         'hover:border-[var(--color-primary-500)] hover:bg-[var(--color-bg-elevated)] hover:shadow-lg'

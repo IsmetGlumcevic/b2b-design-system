@@ -17,6 +17,8 @@ export interface ProductSearchResultProps extends Omit<HTMLAttributes<HTMLDivEle
   onQuickAdd?: (productId: string) => void
   /** Click callback */
   onSelect?: (productId: string) => void
+  /** Navigate to product page callback */
+  onNavigate?: (productId: string) => void
 }
 
 /* ============================================
@@ -35,9 +37,10 @@ export interface ProductSearchResultProps extends Omit<HTMLAttributes<HTMLDivEle
  * />
  */
 export const ProductSearchResult = forwardRef<HTMLDivElement, ProductSearchResultProps>(
-  ({ product, query, onQuickAdd, onSelect, className, ...props }, ref) => {
+  ({ product, query, onQuickAdd, onSelect, onNavigate, className, ...props }, ref) => {
     const handleClick = () => {
       onSelect?.(product.id)
+      onNavigate?.(product.id)
     }
 
     const handleQuickAdd = (e: React.MouseEvent) => {

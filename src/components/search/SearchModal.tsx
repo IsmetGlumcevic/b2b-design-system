@@ -87,6 +87,10 @@ interface SearchModalContextType {
   onSearch: (query: string) => void
   onClearRecentSearch: (id: string) => void
   onQuickAddToCart?: (productId: string) => void
+  onNavigateToSearch?: (query: string) => void
+  onNavigateToProduct?: (productId: string) => void
+  onNavigateToCategory?: (categoryId: string) => void
+  onNavigateToManufacturer?: (manufacturerId: string) => void
 }
 
 const SearchModalContext = createContext<SearchModalContextType | null>(null)
@@ -122,6 +126,14 @@ export interface SearchModalProps {
   onClearRecentSearch?: (id: string) => void
   /** Callback for quick add to cart */
   onQuickAddToCart?: (productId: string) => void
+  /** Callback to navigate to search results page */
+  onNavigateToSearch?: (query: string) => void
+  /** Callback to navigate to product detail page */
+  onNavigateToProduct?: (productId: string) => void
+  /** Callback to navigate to category page */
+  onNavigateToCategory?: (categoryId: string) => void
+  /** Callback to navigate to manufacturer page */
+  onNavigateToManufacturer?: (manufacturerId: string) => void
   /** Custom className */
   className?: string
   /** Children (custom content) */
@@ -162,6 +174,10 @@ export function SearchModal({
   trendingSearches = [],
   onClearRecentSearch,
   onQuickAddToCart,
+  onNavigateToSearch,
+  onNavigateToProduct,
+  onNavigateToCategory,
+  onNavigateToManufacturer,
   className,
   children,
 }: SearchModalProps) {
@@ -235,6 +251,10 @@ export function SearchModal({
     onSearch: handleSearch,
     onClearRecentSearch: handleClearRecentSearch,
     onQuickAddToCart,
+    onNavigateToSearch,
+    onNavigateToProduct,
+    onNavigateToCategory,
+    onNavigateToManufacturer,
   }
 
   return createPortal(

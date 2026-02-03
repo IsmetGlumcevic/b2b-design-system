@@ -15,6 +15,8 @@ export interface ManufacturerSearchResultProps extends Omit<HTMLAttributes<HTMLD
   query?: string
   /** Click callback */
   onSelect?: (manufacturerId: string) => void
+  /** Navigate to manufacturer page callback */
+  onNavigate?: (manufacturerId: string) => void
 }
 
 /* ============================================
@@ -32,9 +34,10 @@ export interface ManufacturerSearchResultProps extends Omit<HTMLAttributes<HTMLD
  * />
  */
 export const ManufacturerSearchResult = forwardRef<HTMLDivElement, ManufacturerSearchResultProps>(
-  ({ manufacturer, query, onSelect, className, ...props }, ref) => {
+  ({ manufacturer, query, onSelect, onNavigate, className, ...props }, ref) => {
     const handleClick = () => {
       onSelect?.(manufacturer.id)
+      onNavigate?.(manufacturer.id)
     }
 
     return (

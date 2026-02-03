@@ -2,7 +2,7 @@
 
 import { cn } from '@/src/lib/utils'
 
-interface MobileSearchBarProps {
+export interface MobileSearchBarProps {
   placeholder?: string
   value?: string
   onChange?: (value: string) => void
@@ -12,6 +12,7 @@ interface MobileSearchBarProps {
   onScan?: () => void
   className?: string
   variant?: 'default' | 'filled' | 'outline'
+  autoFocus?: boolean
 }
 
 const SearchIcon = () => (
@@ -41,6 +42,7 @@ export function MobileSearchBar({
   onScan,
   className,
   variant = 'filled',
+  autoFocus = false,
 }: MobileSearchBarProps) {
   const variantStyles = {
     default: 'bg-white border border-neutral-200',
@@ -68,6 +70,7 @@ export function MobileSearchBar({
               onSubmit(value)
             }
           }}
+          autoFocus={autoFocus}
           className="flex-1 bg-transparent text-sm outline-none placeholder:text-neutral-400"
         />
         {showScanButton && (
