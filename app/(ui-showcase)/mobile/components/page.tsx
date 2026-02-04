@@ -3,13 +3,15 @@
 import { useState } from 'react'
 import { PhoneFrame } from '@/src/components/mobile/PhoneFrame'
 import { MobileHeader } from '@/src/components/mobile/MobileHeader'
-import { MobileTabBar, defaultTabItems, HomeIcon, CategoriesIcon, CartIcon, FavoritesIcon, AccountIcon } from '@/src/components/mobile/MobileTabBar'
+import { MobileTabBar, HomeIcon, CategoriesIcon, CartIcon, FavoritesIcon, AccountIcon } from '@/src/components/mobile/MobileTabBar'
 import { MobileSearchBar } from '@/src/components/mobile/MobileSearchBar'
 import { MobileProductCard, sampleMobileProducts } from '@/src/components/mobile/MobileProductCard'
 import { MobileQuickActions, defaultQuickActions } from '@/src/components/mobile/MobileQuickActions'
 import { MobileSectionHeader } from '@/src/components/mobile/MobileSectionHeader'
 import { MobileCategoryScroller } from '@/src/components/mobile/MobileCategoryScroller'
 import { MobileBrandScroller } from '@/src/components/mobile/MobileBrandScroller'
+import { MobileCartItem, MobileCartSummary, MobileCheckoutBar, sampleMobileCartItems } from '@/src/components/mobile'
+import { MobileProfileHeader, MobileStatCard, MobileInfoCard, MobileActionItem, MobileOrderCard } from '@/src/components/mobile'
 
 // Icons for page
 const ComponentIcon = () => (
@@ -61,6 +63,20 @@ function VariantCard({
     </div>
   )
 }
+
+const MapPinIcon = () => (
+  <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+    <path d="M12 21s6-5.33 6-10a6 6 0 1 0-12 0c0 4.67 6 10 6 10z" />
+    <circle cx="12" cy="11" r="2" />
+  </svg>
+)
+
+const LockIcon = () => (
+  <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+    <rect x="4" y="11" width="16" height="10" rx="2" />
+    <path d="M8 11V7a4 4 0 0 1 8 0v4" />
+  </svg>
+)
 
 export default function MobileComponentsShowcase() {
   const [activeTab, setActiveTab] = useState('home')
@@ -325,6 +341,119 @@ export default function MobileComponentsShowcase() {
                 subtitle="Samo ovaj tjedan"
                 actionLabel="Sve ponude"
                 onAction={() => {}}
+              />
+            </div>
+          </VariantCard>
+        </ComponentShowcase>
+
+        {/* Mobile Cart Components */}
+        <ComponentShowcase
+          title="Mobile Cart"
+          description="Komponente za korpu: stavke, sažetak i checkout bar."
+        >
+          <VariantCard label="Cart Item">
+            <div className="w-80 bg-neutral-200 p-3">
+              <MobileCartItem
+                item={sampleMobileCartItems[0]}
+                onQuantityChange={() => {}}
+                onRemove={() => {}}
+              />
+            </div>
+          </VariantCard>
+          <VariantCard label="Cart Summary">
+            <div className="w-80 bg-neutral-200 p-3">
+              <MobileCartSummary
+                subtotal={128.5}
+                discount={14.2}
+                shipping={4.9}
+                vat={29.25}
+                total={148.45}
+                note="Cijene su informativne."
+              />
+            </div>
+          </VariantCard>
+          <VariantCard label="Checkout Bar">
+            <div className="w-80 bg-neutral-200">
+              <MobileCheckoutBar total={148.45} itemCount={8} />
+            </div>
+          </VariantCard>
+        </ComponentShowcase>
+
+        {/* Mobile Profile Components */}
+        <ComponentShowcase
+          title="Mobile Profile"
+          description="Komponente za profil: header, statistike, info kartice, akcije i narudžbe."
+        >
+          <VariantCard label="Profile Header" bgColor="bg-neutral-900">
+            <div className="w-80">
+              <MobileProfileHeader
+                name="Ivan Horvat"
+                company="Elektro Trade d.o.o."
+                role="Nabava i logistika"
+                email="ivan.horvat@elektrotrade.hr"
+                statusLabel="B2B kupac"
+                onAction={() => {}}
+                actionLabel="Uredi"
+              />
+            </div>
+          </VariantCard>
+          <VariantCard label="Stat Cards">
+            <div className="grid w-80 grid-cols-2 gap-3">
+              <MobileStatCard label="Saldo" value="1,245.80 €" helper="Dospijeće 15.02." tone="warning" />
+              <MobileStatCard label="Raspoloživo" value="3,754.20 €" helper="Limit 5,000 €" tone="success" />
+              <MobileStatCard label="Rabat" value="8%" helper="Standardni rabat" tone="primary" />
+              <MobileStatCard label="Bodovi" value="1,280" helper="Program vjernosti" />
+            </div>
+          </VariantCard>
+          <VariantCard label="Info Card">
+            <div className="w-80">
+              <MobileInfoCard
+                title="Glavna adresa"
+                items={[
+                  { label: 'Adresa', value: 'Savska cesta 123' },
+                  { label: 'Grad', value: 'Zagreb' },
+                  { label: 'Kontakt', value: '+385 91 234 5678' },
+                ]}
+                actionLabel="Promijeni"
+                onAction={() => {}}
+              />
+            </div>
+          </VariantCard>
+          <VariantCard label="Action Item">
+            <div className="w-80 space-y-2">
+              <MobileActionItem
+                title="Promjena adrese"
+                subtitle="Uredi lokacije dostave"
+                icon={<MapPinIcon />}
+                onPress={() => {}}
+              />
+              <MobileActionItem
+                title="Promjena lozinke"
+                subtitle="Sigurnosne postavke"
+                icon={<LockIcon />}
+                onPress={() => {}}
+              />
+            </div>
+          </VariantCard>
+          <VariantCard label="Order Card">
+            <div className="w-80 space-y-2">
+              <MobileOrderCard
+                orderId="#45892"
+                date="12.02.2026"
+                status="U obradi"
+                statusTone="warning"
+                amount="1,249.90 €"
+                itemsCount={12}
+                onPress={() => {}}
+              />
+              <MobileOrderCard
+                orderId="#45821"
+                date="03.02.2026"
+                status="Isporučeno"
+                statusTone="success"
+                amount="569.40 €"
+                itemsCount={6}
+                onPress={() => {}}
               />
             </div>
           </VariantCard>
