@@ -6,6 +6,7 @@ import {
   MobileHeader,
   MobileTabBar,
   MobileSearchBar,
+  MobileSearchPage,
   MobileHeroBanner,
   MobileCategoryScroller,
   MobileProductCard,
@@ -28,10 +29,14 @@ import {
   MobileInfoCard,
   MobileActionItem,
   MobileOrderCard,
+  MobileSearchModal,
   sampleMobileProducts,
   defaultQuickActions,
   sampleMobileBrands,
   sampleSubcategories,
+  sampleFilterCategories,
+  sampleFilterBrands,
+  sampleCharacteristics,
   HomeIcon,
   CategoriesIcon,
   CartIcon,
@@ -41,6 +46,8 @@ import {
   type MobileBrand,
   type MobileProduct,
   type MobileCartItemData,
+  type MobileViewMode,
+  type MobilePriceRange,
 } from '@/src/components/mobile'
 import { cn } from '@/src/lib/utils'
 import { useAddToCart, useCart, type ProductForCart } from '@/src/lib/cart'
@@ -248,6 +255,7 @@ function HomeScreenContent({
   onProductPress,
   onToggleFavorite,
   favoriteIds,
+  onOpenSearch,
 }: {
   onNavigateToCategories: () => void
   onNavigateToBrands: () => void
@@ -257,13 +265,18 @@ function HomeScreenContent({
   onProductPress: (product: MobileProduct) => void
   onToggleFavorite: (product: MobileProduct) => void
   favoriteIds: Set<string>
+  onOpenSearch: () => void
 }) {
   const [currentSlide, setCurrentSlide] = useState(0)
 
   return (
     <div className="flex-1 overflow-y-auto">
       {/* Search Bar */}
-      <MobileSearchBar placeholder="Pretraži proizvode..." showScanButton />
+      <MobileSearchBar
+        placeholder="Pretraži proizvode..."
+        showScanButton
+        onFocus={onOpenSearch}
+      />
 
       {/* Hero Banner */}
       <MobileHeroBanner
@@ -391,59 +404,78 @@ function CategoriesScreenContent({
   onToggleFavorite: (product: MobileProduct) => void
   favoriteIds: Set<string>
 }) {
-  const [searchQuery, setSearchQuery] = useState('')
+  const [categorySearchQuery, setCategorySearchQuery] = useState('')
+  const [productSearchQuery, setProductSearchQuery] = useState('')
+  const [currentSort, setCurrentSort] = useState('relevance')
+  const [viewMode, setViewMode] = useState<MobileViewMode>('grid')
+  const [selectedCategories, setSelectedCategories] = useState<string[]>([])
+  const [selectedBrands, setSelectedBrands] = useState<string[]>([])
+  const [currentPriceRange, setCurrentPriceRange] = useState<MobilePriceRange>({ min: 0, max: 1000 })
+  const [inStockOnly, setInStockOnly] = useState(false)
+  const [selectedCharacteristics, setSelectedCharacteristics] = useState<Record<string, string[]>>({})
 
   // Filter categories based on search
-  const filteredCategories = searchQuery
-    ? allCategories.filter((cat) => cat.name.toLowerCase().includes(searchQuery.toLowerCase()))
+  const filteredCategories = categorySearchQuery
+    ? allCategories.filter((cat) => cat.name.toLowerCase().includes(categorySearchQuery.toLowerCase()))
     : allCategories
 
+  const handleResetFilters = () => {
+    setSelectedCategories([])
+    setSelectedBrands([])
+    setCurrentPriceRange({ min: 0, max: 1000 })
+    setInStockOnly(false)
+    setSelectedCharacteristics({})
+  }
+
+  const handleCharacteristicChange = (charId: string, optionIds: string[]) => {
+    setSelectedCharacteristics((prev) => ({
+      ...prev,
+      [charId]: optionIds,
+    }))
+  }
+
   // Products view
-  if (showingProducts && selectedCategory) {
+  if (showingProducts) {
+    const extendedProducts = [
+      ...sampleMobileProducts,
+      ...sampleMobileProducts,
+      ...sampleMobileProducts,
+    ].map((product, index) => ({ ...product, id: `${product.id}-${index}` }))
+
     return (
-      <div className="flex-1 overflow-y-auto">
-        {/* Search Bar */}
-        <MobileSearchBar placeholder={`Pretraži u ${productTitle}...`} />
-
-        {/* Product count info */}
-        <div className="flex items-center justify-between px-4 py-2">
-          <p className="text-sm text-neutral-500">
-            {sampleMobileProducts.length * 3} proizvoda
-          </p>
-          <button className="flex items-center gap-1 text-sm font-medium text-neutral-600">
-            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
-              <line x1="4" y1="21" x2="4" y2="14" />
-              <line x1="4" y1="10" x2="4" y2="3" />
-              <line x1="12" y1="21" x2="12" y2="12" />
-              <line x1="12" y1="8" x2="12" y2="3" />
-              <line x1="20" y1="21" x2="20" y2="16" />
-              <line x1="20" y1="12" x2="20" y2="3" />
-              <line x1="1" y1="14" x2="7" y2="14" />
-              <line x1="9" y1="8" x2="15" y2="8" />
-              <line x1="17" y1="16" x2="23" y2="16" />
-            </svg>
-            Filteri
-          </button>
-        </div>
-
-        {/* Products Grid */}
-        <div className="grid grid-cols-2 gap-3 px-4 pb-4">
-          {[...sampleMobileProducts, ...sampleMobileProducts, ...sampleMobileProducts].map((product, index) => (
-            <MobileProductCard
-              key={`${product.id}-${index}`}
-              product={{ ...product, id: `${product.id}-${index}` }}
-              variant="vertical"
-              fullWidth
-              onAddToCart={() => onAddToCart(product)}
-              onPress={() => onProductPress(product)}
-              onFavorite={() => onToggleFavorite(product)}
-              isFavorite={favoriteIds.has(product.id)}
-            />
-          ))}
-        </div>
-
-        <div className="h-4" />
-      </div>
+      <MobileSearchPage
+        searchQuery={productSearchQuery}
+        onSearchChange={setProductSearchQuery}
+        onSearchSubmit={() => {}}
+        products={extendedProducts}
+        totalResults={2458}
+        currentSort={currentSort}
+        onSortChange={setCurrentSort}
+        viewMode={viewMode}
+        onViewModeChange={setViewMode}
+        categories={sampleFilterCategories}
+        selectedCategories={selectedCategories}
+        onCategoryChange={setSelectedCategories}
+        brands={sampleFilterBrands}
+        selectedBrands={selectedBrands}
+        onBrandChange={setSelectedBrands}
+        priceRange={{ min: 0, max: 1000 }}
+        currentPriceRange={currentPriceRange}
+        onPriceChange={setCurrentPriceRange}
+        inStockOnly={inStockOnly}
+        onInStockChange={setInStockOnly}
+        characteristics={sampleCharacteristics}
+        selectedCharacteristics={selectedCharacteristics}
+        onCharacteristicChange={handleCharacteristicChange}
+        onResetFilters={handleResetFilters}
+        onProductPress={onProductPress}
+        onAddToCart={onAddToCart}
+        onFavorite={onToggleFavorite}
+        favoriteIds={Array.from(favoriteIds)}
+        className="relative flex-1"
+        filterDrawerPosition="absolute"
+        sortModalPosition="absolute"
+      />
     )
   }
 
@@ -454,8 +486,8 @@ function CategoriesScreenContent({
         {/* Search Bar */}
         <MobileSearchBar
           placeholder="Pretraži kategorije..."
-          value={searchQuery}
-          onChange={setSearchQuery}
+          value={categorySearchQuery}
+          onChange={setCategorySearchQuery}
         />
 
         {/* Categories Grid */}
@@ -477,7 +509,7 @@ function CategoriesScreenContent({
                 <line x1="21" y1="21" x2="16.65" y2="16.65" />
               </svg>
             </div>
-            <p className="text-sm text-neutral-500">Nema rezultata za &quot;{searchQuery}&quot;</p>
+            <p className="text-sm text-neutral-500">Nema rezultata za &quot;{categorySearchQuery}&quot;</p>
           </div>
         )}
 
@@ -1594,6 +1626,8 @@ function MobileHomeScreenContent() {
   const [selectedProduct, setSelectedProduct] = useState<MobileProduct | null>(null)
   const [favoriteProducts, setFavoriteProducts] = useState<MobileProduct[]>([])
   const [favoritesHydrated, setFavoritesHydrated] = useState(false)
+  const [isSearchOpen, setIsSearchOpen] = useState(false)
+  const [searchQuery, setSearchQuery] = useState('')
   const { items, itemCount, updateQuantity, removeFromCart, clearCart } = useCart()
   const addToCart = useAddToCart()
 
@@ -1752,6 +1786,23 @@ function MobileHomeScreenContent() {
     setSelectedProduct(null)
   }
 
+  const handleOpenSearch = () => {
+    setIsSearchOpen(true)
+  }
+
+  const handleCloseSearch = () => {
+    setIsSearchOpen(false)
+  }
+
+  const handleViewAllProducts = (query: string) => {
+    setIsSearchOpen(false)
+    setSelectedProduct(null)
+    setActiveTab('categories')
+    setSelectedCategory(null)
+    setShowingProducts(true)
+    setProductTitle(query ? `Rezultati za "${query}"` : 'Svi proizvodi')
+  }
+
   const handleCartQuantityChange = (id: string, quantity: number) => {
     if (quantity <= 0) {
       removeFromCart(id)
@@ -1792,10 +1843,17 @@ function MobileHomeScreenContent() {
     (activeTab === 'brands' && !!selectedBrand)
 
   return (
-    <div className="flex h-full flex-col bg-neutral-50">
+    <div className="relative flex h-full flex-col bg-neutral-50">
       {/* Header - conditional based on tab */}
       {activeTab === 'home' && !selectedProduct ? (
-        <MobileHeader showLogo showSearch showCart cartCount={itemCount} variant="default" />
+        <MobileHeader
+          showLogo
+          showSearch
+          showCart
+          cartCount={itemCount}
+          variant="default"
+          onSearch={handleOpenSearch}
+        />
       ) : (
         <MobileCategoryHeader
           title={getHeaderTitle()}
@@ -1832,6 +1890,7 @@ function MobileHomeScreenContent() {
           onProductPress={handleProductPress}
           onToggleFavorite={handleToggleFavorite}
           favoriteIds={favoriteIds}
+          onOpenSearch={handleOpenSearch}
         />
       )}
       {!selectedProduct && activeTab === 'categories' && (
@@ -1898,6 +1957,20 @@ function MobileHomeScreenContent() {
         items={createTabItems(activeTab, itemCount)}
         activeTab={activeTab}
         onTabChange={handleTabChange}
+      />
+
+      <MobileSearchModal
+        isOpen={isSearchOpen}
+        query={searchQuery}
+        onQueryChange={setSearchQuery}
+        onClose={handleCloseSearch}
+        products={sampleMobileProducts}
+        onSelectProduct={(product) => {
+          handleCloseSearch()
+          handleProductPress(product)
+        }}
+        onAddToCart={(product) => handleAddMobileProductToCart(product)}
+        onViewAll={handleViewAllProducts}
       />
     </div>
   )

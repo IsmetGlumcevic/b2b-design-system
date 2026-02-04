@@ -156,6 +156,9 @@ function MobileSearchContent() {
         onAddToCart={(p) => console.log('Add to cart:', p.name)}
         onFavorite={handleFavorite}
         favoriteIds={favoriteIds}
+        className="relative"
+        filterDrawerPosition="absolute"
+        sortModalPosition="absolute"
       />
 
       {/* Tab Bar */}

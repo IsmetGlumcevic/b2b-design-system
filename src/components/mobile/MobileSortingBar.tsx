@@ -27,6 +27,8 @@ export interface MobileSortingBarProps {
   onOpenFilters?: () => void
   /** Broj aktivnih filtera */
   activeFiltersCount?: number
+  /** Sort modal positioning */
+  sortModalPosition?: 'fixed' | 'absolute'
   className?: string
 }
 
@@ -47,6 +49,7 @@ export function MobileSortingBar({
   onViewModeChange,
   onOpenFilters,
   activeFiltersCount = 0,
+  sortModalPosition = 'fixed',
   className,
 }: MobileSortingBarProps) {
   const [showSortModal, setShowSortModal] = useState(false)
@@ -137,7 +140,12 @@ export function MobileSortingBar({
 
       {/* Sort Modal */}
       {showSortModal && (
-        <div className="fixed inset-0 z-50">
+        <div
+          className={cn(
+            sortModalPosition === 'fixed' ? 'fixed inset-0' : 'absolute inset-0',
+            'z-50'
+          )}
+        >
           <div
             className="absolute inset-0 bg-black/40"
             onClick={() => setShowSortModal(false)}

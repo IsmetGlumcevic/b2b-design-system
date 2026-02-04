@@ -159,6 +159,7 @@ export function PhoneFrame({
           )}
           style={{
             fontSize: `${scale * 100}%`,
+            ['--safe-area-top' as never]: device === 'iphone' ? '0px' : '0px',
           }}
         >
           {/* Status bar */}

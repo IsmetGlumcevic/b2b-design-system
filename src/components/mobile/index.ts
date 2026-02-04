@@ -26,6 +26,7 @@ export { MobileStatCard } from './MobileStatCard'
 export { MobileInfoCard, type MobileInfoItem } from './MobileInfoCard'
 export { MobileActionItem } from './MobileActionItem'
 export { MobileOrderCard } from './MobileOrderCard'
+export { MobileSearchModal } from './MobileSearchModal'
 
 // Search Page Components
 export { MobileSortingBar, type MobileSortOption, type MobileViewMode } from './MobileSortingBar'

@@ -53,6 +53,10 @@ export interface MobileSearchPageProps {
   isLoading?: boolean
   /** Empty state */
   emptyMessage?: string
+  /** Filter drawer positioning */
+  filterDrawerPosition?: 'fixed' | 'absolute'
+  /** Sort modal positioning */
+  sortModalPosition?: 'fixed' | 'absolute'
   className?: string
 }
 
@@ -87,6 +91,8 @@ export function MobileSearchPage({
   favoriteIds = [],
   isLoading = false,
   emptyMessage = 'Nema proizvoda koji odgovaraju vašoj pretrazi',
+  filterDrawerPosition = 'fixed',
+  sortModalPosition = 'fixed',
   className,
 }: MobileSearchPageProps) {
   const [isFilterOpen, setIsFilterOpen] = useState(false)
@@ -207,6 +213,7 @@ export function MobileSearchPage({
         onViewModeChange={onViewModeChange}
         onOpenFilters={() => setIsFilterOpen(true)}
         activeFiltersCount={activeFiltersCount}
+        sortModalPosition={sortModalPosition}
       />
 
       {/* Active Filters */}
@@ -267,6 +274,7 @@ export function MobileSearchPage({
         isOpen={isFilterOpen}
         onClose={() => setIsFilterOpen(false)}
         title="Filteri"
+        position={filterDrawerPosition}
       >
         <MobileFilterContent
           categories={categories}

@@ -12,6 +12,8 @@ export interface MobileFilterDrawerProps {
   children: ReactNode
   /** Naslov */
   title?: string
+  /** Positioning */
+  position?: 'fixed' | 'absolute'
 }
 
 export function MobileFilterDrawer({
@@ -19,10 +21,11 @@ export function MobileFilterDrawer({
   onClose,
   children,
   title = 'Filteri',
+  position = 'fixed',
 }: MobileFilterDrawerProps) {
   // Zaključaj scroll kad je otvoren
   useEffect(() => {
-    if (isOpen) {
+    if (isOpen && position === 'fixed') {
       document.body.style.overflow = 'hidden'
     } else {
       document.body.style.overflow = ''
@@ -30,12 +33,17 @@ export function MobileFilterDrawer({
     return () => {
       document.body.style.overflow = ''
     }
-  }, [isOpen])
+  }, [isOpen, position])
 
   if (!isOpen) return null
 
   return (
-    <div className="fixed inset-0 z-[var(--z-modal)] lg:hidden">
+    <div
+      className={cn(
+        position === 'fixed' ? 'fixed inset-0 lg:hidden' : 'absolute inset-0',
+        'z-[var(--z-modal)]'
+      )}
+    >
       {/* Overlay */}
       <div
         className="absolute inset-0 bg-[var(--color-bg-overlay)]"
