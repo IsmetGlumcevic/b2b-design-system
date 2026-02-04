@@ -332,33 +332,56 @@ function SearchLoadingState() {
    ============================================ */
 
 function SearchModalFooter() {
+  const { query, onNavigateToSearch } = useSearchModal()
+
   return (
     <div
       className={cn(
-        'flex items-center justify-center gap-[var(--spacing-6)]',
+        'flex flex-col gap-[var(--spacing-3)]',
+        'sm:flex-row sm:items-center sm:justify-between',
         'px-[var(--spacing-6)] py-[var(--spacing-3)]',
         'border-t border-[var(--color-border-primary)]',
         'bg-[var(--color-bg-secondary)]',
         'text-[var(--font-size-xs)] text-[var(--color-text-tertiary)]'
       )}
     >
-      <div className="flex items-center gap-[var(--spacing-2)]">
-        <kbd className="px-[var(--spacing-1-5)] py-[var(--spacing-0-5)] rounded bg-[var(--color-bg-tertiary)] border border-[var(--color-border-primary)] font-mono text-[var(--font-size-xs)]">
-          ESC
-        </kbd>
-        <span>Zatvori</span>
+      <div className="flex items-center justify-center sm:justify-start">
+        {onNavigateToSearch && query.length > 0 && (
+          <button
+            type="button"
+            onClick={() => onNavigateToSearch(query)}
+            className={cn(
+              'text-[var(--font-size-sm)] font-medium',
+              'text-[var(--color-primary-600)]',
+              'hover:text-[var(--color-primary-700)]',
+              'transition-colors duration-[var(--duration-150)]',
+              'focus-visible:outline-none focus-visible:underline'
+            )}
+          >
+            Pogledaj sve rezultate →
+          </button>
+        )}
       </div>
-      <div className="flex items-center gap-[var(--spacing-2)]">
-        <kbd className="px-[var(--spacing-1-5)] py-[var(--spacing-0-5)] rounded bg-[var(--color-bg-tertiary)] border border-[var(--color-border-primary)] font-mono text-[var(--font-size-xs)]">
-          ↑↓
-        </kbd>
-        <span>Navigacija</span>
-      </div>
-      <div className="flex items-center gap-[var(--spacing-2)]">
-        <kbd className="px-[var(--spacing-1-5)] py-[var(--spacing-0-5)] rounded bg-[var(--color-bg-tertiary)] border border-[var(--color-border-primary)] font-mono text-[var(--font-size-xs)]">
-          Enter
-        </kbd>
-        <span>Odaberi</span>
+
+      <div className="flex flex-wrap items-center justify-center gap-[var(--spacing-6)]">
+        <div className="flex items-center gap-[var(--spacing-2)]">
+          <kbd className="px-[var(--spacing-1-5)] py-[var(--spacing-0-5)] rounded bg-[var(--color-bg-tertiary)] border border-[var(--color-border-primary)] font-mono text-[var(--font-size-xs)]">
+            ESC
+          </kbd>
+          <span>Zatvori</span>
+        </div>
+        <div className="flex items-center gap-[var(--spacing-2)]">
+          <kbd className="px-[var(--spacing-1-5)] py-[var(--spacing-0-5)] rounded bg-[var(--color-bg-tertiary)] border border-[var(--color-border-primary)] font-mono text-[var(--font-size-xs)]">
+            ↑↓
+          </kbd>
+          <span>Navigacija</span>
+        </div>
+        <div className="flex items-center gap-[var(--spacing-2)]">
+          <kbd className="px-[var(--spacing-1-5)] py-[var(--spacing-0-5)] rounded bg-[var(--color-bg-tertiary)] border border-[var(--color-border-primary)] font-mono text-[var(--font-size-xs)]">
+            Enter
+          </kbd>
+          <span>Odaberi</span>
+        </div>
       </div>
     </div>
   )

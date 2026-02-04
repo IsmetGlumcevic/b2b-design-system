@@ -1,4 +1,4 @@
-import Link from 'next/link'
+import { MobileSidebar } from './MobileSidebar'
 
 const navigation = {
   'Design System': [
@@ -53,47 +53,12 @@ export default function ShowcaseLayout({
 }) {
   return (
     <div className="flex min-h-screen">
-      {/* Sidebar */}
-      <aside className="w-64 shrink-0 border-r border-[var(--color-border-primary)] bg-[var(--color-bg-secondary)] p-6">
-        <Link
-          href="/design-system"
-          className="mb-8 block text-xl font-bold text-[var(--color-text-primary)]"
-        >
-          UI Showcase
-        </Link>
-
-        <nav className="space-y-6">
-          {Object.entries(navigation).map(([category, items]) => (
-            <div key={category}>
-              <h3 className="mb-2 text-xs font-semibold uppercase tracking-wider text-[var(--color-text-tertiary)]">
-                {category}
-              </h3>
-              <ul className="space-y-1">
-                {items.map((item) => (
-                  <li key={item.href}>
-                    {'disabled' in item && item.disabled ? (
-                      <span className="block cursor-not-allowed rounded-md px-3 py-2 text-sm text-[var(--color-text-tertiary)] opacity-50">
-                        {item.name}
-                        <span className="ml-1 text-[10px]">(uskoro)</span>
-                      </span>
-                    ) : (
-                      <Link
-                        href={item.href}
-                        className="block rounded-md px-3 py-2 text-sm text-[var(--color-text-secondary)] transition-colors hover:bg-[var(--color-bg-tertiary)] hover:text-[var(--color-text-primary)]"
-                      >
-                        {item.name}
-                      </Link>
-                    )}
-                  </li>
-                ))}
-              </ul>
-            </div>
-          ))}
-        </nav>
-      </aside>
+      <MobileSidebar navigation={navigation} />
 
       {/* Main content */}
-      <main className="flex-1 overflow-auto">{children}</main>
+      <main className="flex-1 overflow-auto pl-0 pt-16 lg:pl-0 lg:pt-0">
+        {children}
+      </main>
     </div>
   )
 }

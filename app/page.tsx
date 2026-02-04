@@ -33,6 +33,7 @@ import {
   SearchModal,
   type RecentSearch,
   type TrendingSearch,
+  type SearchResult,
 } from '@/src/components/search'
 import { Tabs, TabsList, TabsTrigger, TabsContent } from '@/src/components/ui/Tabs'
 import { ProductTable, type ProductTableItem } from '@/src/components/ui/ProductTable'
@@ -42,6 +43,7 @@ import { FeaturedBrands, type BrandItem } from '@/src/components/ui/FeaturedBran
 import { BenefitsSection, type BenefitItem } from '@/src/components/ui/BenefitsSection'
 import { NewsletterSection } from '@/src/components/ui/NewsletterSection'
 import { PromoBanner, PromoBar } from '@/src/components/ui/PromoBanner'
+import { useCart } from '@/src/lib/cart'
 
 // Icons for categories and benefits (using simple SVG placeholders)
 const CableIcon = () => (
@@ -512,7 +514,7 @@ const catalogLinks: FooterLink[] = [
 const b2bLinks: FooterLink[] = [
   { label: 'B2B Portal', href: '/b2b' },
   { label: 'Veleprodaja', href: '/veleprodaja' },
-  { label: 'Registracija firme', href: '/registracija-firme' },
+  { label: 'Registracija firme', href: '/registracija' },
   { label: 'Cjenovnici', href: '/cjenovnici' },
 ]
 
@@ -550,6 +552,50 @@ const trendingSearches: TrendingSearch[] = [
   { id: '3', query: 'LED paneli' },
   { id: '4', query: 'Utičnice Schuko' },
 ]
+
+const searchResults: SearchResult = {
+  products: [
+    {
+      id: '2CDS252001R0164',
+      name: 'ABB S202 C16 Automatski osigurač, 2P, 16A',
+      sku: '2CDS252001R0164',
+      manufacturer: 'ABB',
+      price: 13.9,
+      image: '/products/osigurac-1.svg',
+      inStock: true,
+    },
+    {
+      id: 'A9F74216',
+      name: 'Schneider Acti9 iC60N C16, 2P, 6kA',
+      sku: 'A9F74216',
+      manufacturer: 'SCHNEIDER',
+      price: 17.4,
+      image: '/products/osigurac-2.svg',
+      inStock: true,
+    },
+    {
+      id: 'MCN216',
+      name: 'Hager MCN216 Automatski osigurač, 2P, 16A',
+      sku: 'MCN216',
+      manufacturer: 'HAGER',
+      price: 16.1,
+      image: '/products/osigurac-3.svg',
+      inStock: true,
+    },
+    {
+      id: 'S201-B16',
+      name: 'ABB S201 B16 Automatski osigurač, 1P, 16A',
+      sku: 'S201-B16',
+      manufacturer: 'ABB',
+      price: 10.9,
+      image: '/products/osigurac-3.svg',
+      inStock: false,
+    },
+  ],
+  categories: [],
+  manufacturers: [],
+  series: [],
+}
 
 // Sample products for ProductTable
 const sampleProducts: ProductTableItem[] = [
@@ -636,6 +682,7 @@ const najprodavanijiProizvodi: ProductTableItem[] = [...sampleProducts].reverse(
 export default function Home() {
   const router = useRouter()
   const [searchOpen, setSearchOpen] = useState(false)
+  const { itemCount } = useCart()
 
   const handleSearchOpen = () => {
     setSearchOpen(true)
@@ -705,10 +752,12 @@ export default function Home() {
               colorScheme="dark"
               placeholder="Pretraži proizvode..."
             />
-            <CartButton count={0} href="/cart" colorScheme="dark" />
-            <Button variant="primary" size="md" className="hidden sm:inline-flex">
-              Prijava
-            </Button>
+            <CartButton count={itemCount} href="/cart" colorScheme="dark" />
+            <Link href="/prijava" className="hidden sm:inline-flex">
+              <Button variant="primary" size="md">
+                Prijava
+              </Button>
+            </Link>
           </HeaderActions>
         </HeaderMain>
       </Header>
@@ -727,7 +776,7 @@ export default function Home() {
           }}
           secondaryAction={{
             label: 'B2B registracija',
-            href: '/b2b/registracija',
+            href: '/registracija',
           }}
           size="lg"
           stats={[
@@ -816,7 +865,7 @@ export default function Home() {
           subtitle="Registrirajte svoju firmu i ostvarite pristup veleprodajnim cijenama, odgođenom plaćanju i prioritetnoj dostavi."
           action={{
             label: 'Registriraj firmu',
-            href: '/b2b/registracija',
+            href: '/registracija',
           }}
           backgroundColor="gradient"
           size="md"
@@ -901,7 +950,8 @@ export default function Home() {
         onClose={() => setSearchOpen(false)}
         recentSearches={recentSearches}
         trendingSearches={trendingSearches}
-        onSearch={handleNavigateToSearch}
+        results={searchResults}
+        onSearch={(query) => console.log('Search:', query)}
         onQuickAddToCart={(productId) => {
           console.log('Quick add to cart:', productId)
         }}

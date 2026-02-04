@@ -1,6 +1,7 @@
 'use client'
 
 import { useState } from 'react'
+import { useRouter } from 'next/navigation'
 import Link from 'next/link'
 import {
   Header,
@@ -39,8 +40,10 @@ import {
   SearchModal,
   type RecentSearch,
   type TrendingSearch,
+  type SearchResult,
 } from '@/src/components/search'
 import { cn } from '@/src/lib/utils'
+import { useCart, useAddToCart, type ProductForCart } from '@/src/lib/cart'
 
 // Mock data - brendovi za navigaciju
 const navBrands: Brand[] = [
@@ -356,13 +359,72 @@ const trendingSearches: TrendingSearch[] = [
   { id: '1', query: 'Prekidači Legrand' },
 ]
 
+const searchResults: SearchResult = {
+  products: [
+    {
+      id: '2CDS252001R0164',
+      name: 'ABB S202 C16 Automatski osigurač, 2P, 16A',
+      sku: '2CDS252001R0164',
+      manufacturer: 'ABB',
+      price: 13.9,
+      image: '/products/osigurac-1.svg',
+      inStock: true,
+    },
+    {
+      id: 'A9F74216',
+      name: 'Schneider Acti9 iC60N C16, 2P, 6kA',
+      sku: 'A9F74216',
+      manufacturer: 'SCHNEIDER',
+      price: 17.4,
+      image: '/products/osigurac-2.svg',
+      inStock: true,
+    },
+    {
+      id: 'MCN216',
+      name: 'Hager MCN216 Automatski osigurač, 2P, 16A',
+      sku: 'MCN216',
+      manufacturer: 'HAGER',
+      price: 16.1,
+      image: '/products/osigurac-3.svg',
+      inStock: true,
+    },
+    {
+      id: 'S201-B16',
+      name: 'ABB S201 B16 Automatski osigurač, 1P, 16A',
+      sku: 'S201-B16',
+      manufacturer: 'ABB',
+      price: 10.9,
+      image: '/products/osigurac-3.svg',
+      inStock: false,
+    },
+  ],
+  categories: [],
+  manufacturers: [],
+  series: [],
+}
+
 export default function BrandDetailPage() {
+  // Cart hooks
+  const router = useRouter()
+  const { itemCount } = useCart()
+  const addToCartHandler = useAddToCart()
+
   // State
   const [searchOpen, setSearchOpen] = useState(false)
   const [mobileFiltersOpen, setMobileFiltersOpen] = useState(false)
   const [currentPage, setCurrentPage] = useState(1)
   const [currentSort, setCurrentSort] = useState('relevance')
   const [viewMode, setViewMode] = useState<ViewMode>('grid')
+
+  const handleNavigateToSearch = (query: string) => {
+    setSearchOpen(false)
+    router.push(`/proizvodi?q=${encodeURIComponent(query)}`)
+  }
+
+  const handleNavigateToProduct = (productId: string) => {
+    setSearchOpen(false)
+    router.push(`/proizvod/${productId}`)
+  }
   const [selectedCategories, setSelectedCategories] = useState<string[]>([])
   const [selectedSeries, setSelectedSeries] = useState<string[]>([])
   const [priceRange, setPriceRange] = useState<PriceRange>({ min: 0, max: 500 })
@@ -450,10 +512,12 @@ export default function BrandDetailPage() {
               colorScheme="dark"
               placeholder="Pretraži proizvode..."
             />
-            <CartButton count={3} href="/cart" colorScheme="dark" />
-            <Button variant="primary" size="md" className="hidden sm:inline-flex">
-              Prijava
-            </Button>
+            <CartButton count={itemCount} href="/cart" colorScheme="dark" />
+            <Link href="/prijava" className="hidden sm:inline-flex">
+              <Button variant="primary" size="md">
+                Prijava
+              </Button>
+            </Link>
           </HeaderActions>
         </HeaderMain>
       </Header>
@@ -646,7 +710,19 @@ export default function BrandDetailPage() {
                     key={product.id}
                     {...product}
                     variant={viewMode === 'list' ? 'compact' : 'default'}
-                    onAddToCart={(id, qty) => console.log('Add to cart:', id, qty)}
+                    onAddToCart={(id, qty) => {
+                      const productForCart: ProductForCart = {
+                        id: product.id,
+                        sifra: product.sifra,
+                        naziv: product.naziv,
+                        proizvodac: product.proizvodac,
+                        cijena: product.cijena,
+                        staraCijena: product.staraCijena,
+                        zaliha: product.zaliha,
+                        jedinica: product.jedinica,
+                      }
+                      addToCartHandler(productForCart, qty)
+                    }}
                     onAddToWishlist={(id) => console.log('Add to wishlist:', id)}
                   />
                 ))}
@@ -719,9 +795,12 @@ export default function BrandDetailPage() {
         onClose={() => setSearchOpen(false)}
         recentSearches={recentSearches}
         trendingSearches={trendingSearches}
+        results={searchResults}
         onSearch={(query) => console.log('Search:', query)}
         onQuickAddToCart={(id) => console.log('Quick add:', id)}
         onClearRecentSearch={(id) => console.log('Clear:', id)}
+        onNavigateToSearch={handleNavigateToSearch}
+        onNavigateToProduct={handleNavigateToProduct}
       />
     </div>
   )

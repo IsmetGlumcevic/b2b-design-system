@@ -692,7 +692,7 @@ export default function MobileHomeScreenShowcase() {
           <h2 className="mb-4 text-lg sm:text-xl font-semibold text-neutral-800">
             Preview
           </h2>
-          <div className="flex flex-wrap justify-center gap-4 sm:gap-8 rounded-2xl bg-neutral-200 p-4 sm:p-8">
+          <div className="flex flex-col items-center gap-6 rounded-2xl bg-neutral-200 p-4 sm:flex-row sm:flex-wrap sm:justify-center sm:gap-8 sm:p-8">
             {/* iPhone Preview */}
             <div>
               <p className="mb-2 text-center text-xs sm:text-sm font-medium text-neutral-600">iPhone</p>
@@ -702,7 +702,7 @@ export default function MobileHomeScreenShowcase() {
             </div>
 
             {/* Android Preview */}
-            <div className="hidden sm:block">
+            <div>
               <p className="mb-2 text-center text-xs sm:text-sm font-medium text-neutral-600">Android</p>
               <PhoneFrame device="android" size="medium">
                 <MobileHomeScreenContent />
