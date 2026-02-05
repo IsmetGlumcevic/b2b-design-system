@@ -180,7 +180,7 @@ export default function ButtonsPage() {
             Sa ikonama
           </h3>
           <div className="flex flex-wrap items-center gap-4">
-            <Button leftIcon={<CartIcon />}>Dodaj u korpu</Button>
+            <Button leftIcon={<CartIcon />}>Dodaj u košaricu</Button>
             <Button rightIcon={<ArrowRightIcon />} variant="outline">
               Nastavi
             </Button>
@@ -210,7 +210,7 @@ export default function ButtonsPage() {
           <div className="max-w-md space-y-4">
             <Button fullWidth>Full Width Button</Button>
             <Button fullWidth variant="outline" leftIcon={<CartIcon />}>
-              Dodaj u korpu
+              Dodaj u košaricu
             </Button>
           </div>
         </div>
@@ -341,11 +341,11 @@ export default function ButtonsPage() {
 {`import { Button, IconButton, LinkButton } from '@/src/components/ui/buttons'
 
 // Basic Button
-<Button variant="primary" size="md">Dodaj u korpu</Button>
+<Button variant="primary" size="md">Dodaj u košaricu</Button>
 
 // Button with icons
 <Button leftIcon={<CartIcon />} variant="outline">
-  Dodaj u korpu
+  Dodaj u košaricu
 </Button>
 
 // Loading state

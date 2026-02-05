@@ -195,7 +195,7 @@ export default function CardPage() {
                 <p className="mb-4 text-lg font-bold text-[var(--color-primary-500)]">{product.price}</p>
                 <div className="flex gap-2">
                   <Button variant="primary" size="sm" fullWidth leftIcon={<CartIcon />}>
-                    U korpu
+                    U košaricu
                   </Button>
                   <Button variant="outline" size="sm">
                     <HeartIcon />

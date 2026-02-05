@@ -833,25 +833,25 @@ export default function Home() {
               <TabsContent value="akcija">
                 <ProductTable
                   items={akcijskiProizvodi}
-                  onAddToCart={(item, qty) => console.log('Dodano u korpu:', qty, 'x', item.naziv)}
+                  onAddToCart={(item, qty) => console.log('Dodano u košaricu:', qty, 'x', item.naziv)}
                 />
               </TabsContent>
               <TabsContent value="novi">
                 <ProductTable
                   items={noviProizvodi}
-                  onAddToCart={(item, qty) => console.log('Dodano u korpu:', qty, 'x', item.naziv)}
+                  onAddToCart={(item, qty) => console.log('Dodano u košaricu:', qty, 'x', item.naziv)}
                 />
               </TabsContent>
               <TabsContent value="preporuceno">
                 <ProductTable
                   items={preporuceniProizvodi}
-                  onAddToCart={(item, qty) => console.log('Dodano u korpu:', qty, 'x', item.naziv)}
+                  onAddToCart={(item, qty) => console.log('Dodano u košaricu:', qty, 'x', item.naziv)}
                 />
               </TabsContent>
               <TabsContent value="najprodavanije">
                 <ProductTable
                   items={najprodavanijiProizvodi}
-                  onAddToCart={(item, qty) => console.log('Dodano u korpu:', qty, 'x', item.naziv)}
+                  onAddToCart={(item, qty) => console.log('Dodano u košaricu:', qty, 'x', item.naziv)}
                 />
               </TabsContent>
             </Tabs>

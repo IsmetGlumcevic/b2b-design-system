@@ -197,7 +197,7 @@ export default function StackPage() {
               <HStack justify="between" fullWidth>
                 <span className="text-xl font-bold text-[var(--color-primary-500)]">99.99 KM</span>
                 <button className="px-4 py-2 rounded-[var(--radius-button)] bg-[var(--color-primary-500)] text-white text-sm font-medium">
-                  Dodaj u korpu
+                  Dodaj u košaricu
                 </button>
               </HStack>
             </VStack>

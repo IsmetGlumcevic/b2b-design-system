@@ -7,6 +7,34 @@ export const metadata = {
 
 const sections = [
   {
+    title: 'Themes',
+    description: '8 dostupnih tema: default, sharp, rounded, compact, spacious, industrial, corporate, brutalist',
+    href: '/design-system/themes',
+    badge: 'NEW',
+    preview: (
+      <div className="flex gap-2">
+        <div className="h-8 w-8 rounded-lg border-2 border-[var(--color-primary-500)] bg-[var(--color-primary-50)]" />
+        <div className="h-8 w-8 border-2 border-[var(--color-primary-500)] bg-[var(--color-primary-50)]" />
+        <div className="h-8 w-8 rounded-xl border-2 border-[var(--color-primary-500)] bg-[var(--color-primary-50)]" />
+      </div>
+    ),
+  },
+  {
+    title: 'CSS Variables',
+    description: 'Kako CSS varijable funkcionišu - interaktivni demo',
+    href: '/design-system/css-variables-demo',
+    badge: 'DEMO',
+    preview: (
+      <div className="flex items-center gap-2">
+        <div className="text-xs font-mono text-[var(--color-primary-600)]">
+          var(--radius-button)
+        </div>
+        <div className="text-xs text-[var(--color-text-tertiary)]">→</div>
+        <div className="text-xs font-semibold text-[var(--color-success-600)]">6px</div>
+      </div>
+    ),
+  },
+  {
     title: 'Colors',
     description: 'Color palette with primary, neutral, and semantic colors',
     href: '/design-system/colors',
@@ -79,10 +107,15 @@ export default function DesignSystemPage() {
           <Link
             key={section.href}
             href={section.href}
-            className="group rounded-[var(--radius-card)] border border-[var(--color-border-primary)] bg-[var(--color-bg-primary)] p-6 transition-all hover:border-[var(--color-border-tertiary)] hover:shadow-[var(--shadow-md)]"
+            className="group relative rounded-[var(--radius-card)] border border-[var(--color-border-primary)] bg-[var(--color-bg-primary)] p-6 transition-all hover:border-[var(--color-border-tertiary)] hover:shadow-[var(--shadow-md)]"
           >
+            {section.badge && (
+              <span className="absolute right-4 top-4 rounded-full bg-[var(--color-primary-500)] px-2 py-1 text-[10px] font-bold text-white">
+                {section.badge}
+              </span>
+            )}
             <div className="mb-4">{section.preview}</div>
-            <h2 className="mb-1 text-lg font-semibold text-[var(--color-text-primary)] group-hover:text-[var(--color-text-brand)]">
+            <h2 className="mb-1 text-lg font-semibold text-[var(--color-text-primary)] group-hover:text-[var(--color-primary-600)]">
               {section.title}
             </h2>
             <p className="text-sm text-[var(--color-text-secondary)]">

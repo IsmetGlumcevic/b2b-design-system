@@ -121,7 +121,7 @@ export default function TablePage() {
           ProductTable
         </h1>
         <p className="text-[var(--color-text-secondary)]">
-          Tabela za prikaz proizvoda sa svim bitnim informacijama: šifra, naziv, proizvođač, zaliha, cijena i opcija za dodavanje u korpu.
+          Tabela za prikaz proizvoda sa svim bitnim informacijama: šifra, naziv, proizvođač, zaliha, cijena i opcija za dodavanje u košaricu.
         </p>
       </div>
 
@@ -133,8 +133,8 @@ export default function TablePage() {
         <ProductTable
           items={sampleProducts}
           onAddToCart={(item, qty) => {
-            console.log('Dodano u korpu:', qty, 'x', item.naziv)
-            alert(`Dodano u korpu: ${qty} x ${item.naziv}`)
+            console.log('Dodano u košaricu:', qty, 'x', item.naziv)
+            alert(`Dodano u košaricu: ${qty} x ${item.naziv}`)
           }}
         />
       </section>
@@ -159,7 +159,7 @@ export default function TablePage() {
           Nema na stanju
         </h2>
         <p className="mb-4 text-[var(--color-text-secondary)]">
-          Proizvodi koji nisu na stanju prikazuju se sa crvenim indikatorom i onemogućenim dodavanjem u korpu.
+          Proizvodi koji nisu na stanju prikazuju se sa crvenim indikatorom i onemogućenim dodavanjem u košaricu.
         </p>
         <ProductTable
           items={outOfStockProducts}
@@ -282,7 +282,7 @@ const products: ProductTableItem[] = [
               <tr className="border-b border-[var(--color-border-primary)]">
                 <td className="py-2"><code>onAddToCart</code></td>
                 <td className="py-2"><code>(item, qty) =&gt; void</code></td>
-                <td className="py-2">Callback kad se dodaje u korpu</td>
+                <td className="py-2">Callback kad se dodaje u košaricu</td>
               </tr>
               <tr className="border-b border-[var(--color-border-primary)]">
                 <td className="py-2"><code>isLoading</code></td>

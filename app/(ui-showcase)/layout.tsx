@@ -3,6 +3,8 @@ import { MobileSidebar } from './MobileSidebar'
 const navigation = {
   'Design System': [
     { name: 'Overview', href: '/design-system' },
+    { name: 'Themes', href: '/design-system/themes', badge: 'NEW' },
+    { name: 'CSS Variables Demo', href: '/design-system/css-variables-demo', badge: 'DEMO' },
     { name: 'Colors', href: '/design-system/colors' },
     { name: 'Typography', href: '/design-system/typography' },
     { name: 'Spacing', href: '/design-system/spacing' },

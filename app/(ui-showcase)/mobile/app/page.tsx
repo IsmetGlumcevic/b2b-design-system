@@ -115,7 +115,7 @@ function createTabItems(activeTab: string, cartCount: number = 3) {
   return [
     { id: 'home', label: 'Početna', icon: <HomeIcon active={activeTab === 'home'} /> },
     { id: 'categories', label: 'Kategorije', icon: <CategoriesIcon active={activeTab === 'categories'} /> },
-    { id: 'cart', label: 'Korpa', icon: <CartIcon active={activeTab === 'cart'} />, badge: cartCount },
+    { id: 'cart', label: 'Košarica', icon: <CartIcon active={activeTab === 'cart'} />, badge: cartCount },
     { id: 'favorites', label: 'Favoriti', icon: <FavoritesIcon active={activeTab === 'favorites'} /> },
     { id: 'account', label: 'Profil', icon: <AccountIcon active={activeTab === 'account'} /> },
   ]
@@ -325,7 +325,7 @@ function CartScreenContent() {
       <div className="mb-4 flex h-20 w-20 items-center justify-center rounded-full bg-neutral-100 text-neutral-400">
         <CartIcon active={false} />
       </div>
-      <h2 className="mb-2 text-lg font-semibold text-neutral-900">Korpa</h2>
+      <h2 className="mb-2 text-lg font-semibold text-neutral-900">Košarica</h2>
       <p className="text-sm text-neutral-500">3 artikla u korpi</p>
       <p className="mt-1 text-xs text-neutral-400">Ova stranica je u izradi</p>
     </div>
@@ -396,7 +396,7 @@ function MobileAppContent() {
     const titles: Record<string, string> = {
       home: '',
       categories: 'Kategorije',
-      cart: 'Korpa',
+      cart: 'Košarica',
       favorites: 'Favoriti',
       account: 'Profil',
     }
@@ -488,7 +488,7 @@ export default function MobileAppShowcase() {
                 desc: 'Grid svih kategorija, podkategorije',
                 status: 'ready',
               },
-              { name: 'Korpa', tab: 'cart', desc: 'Lista proizvoda u korpi', status: 'planned' },
+              { name: 'Košarica', tab: 'cart', desc: 'Lista proizvoda u korpi', status: 'planned' },
               {
                 name: 'Favoriti',
                 tab: 'favorites',

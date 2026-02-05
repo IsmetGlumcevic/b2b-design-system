@@ -1,0 +1,27 @@
+/* ============================================
+   DEFAULT THEME - Standardni izgled
+   Balansiran, moderan dizajn sa blagim zaobljenjima
+   ============================================ */
+
+:root {
+  /* ===========================
+     DEFAULT VALUES
+     Ova tema koristi standardne vrijednosti iz globals.css
+     Ovdje možeš override-ati samo što želiš promijeniti
+     =========================== */
+
+  /* Ova tema koristi sve default vrijednosti,
+     pa nema override-a potrebnih */
+
+  /* Opciono: možeš dodati brand-specific boje */
+  /* Primjer:
+  --color-primary-500: #ed1c24;
+  --color-secondary-800: #1f2937;
+  */
+}
+
+/* ============================================
+   BRAND IDENTITY (opciono)
+   ============================================ */
+
+/* Ovdje možeš dodati brand-specific overrides */

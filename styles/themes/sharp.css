@@ -1,0 +1,74 @@
+/* ============================================
+   SHARP THEME - Bez zaobljenih ivica
+   Modern, minimalistički izgled
+   ============================================ */
+
+:root {
+  /* ===========================
+     BORDER RADIUS OVERRIDES
+     Sve komponente dobijaju oštre uglove
+     =========================== */
+
+  /* Base Border Radius - sve na 0 */
+  --radius-none: 0;
+  --radius-sm: 0;
+  --radius-base: 0;
+  --radius-md: 0;
+  --radius-lg: 0;
+  --radius-xl: 0;
+  --radius-2xl: 0;
+  --radius-3xl: 0;
+  /* --radius-full ostaje za specifične elemente kao avatari */
+
+  /* Semantic Border Radius - sve komponente bez radiusa */
+  --radius-button: 0;
+  --radius-input: 0;
+  --radius-card: 0;
+  --radius-modal: 0;
+  /* --radius-badge može ostati full za estetiku */
+
+  /* ===========================
+     OPTIONAL: SHADOWS ADJUSTMENT
+     Šarpe teme često imaju jače shadows
+     =========================== */
+
+  /* Jači shadows za kontrast sa oštrim ivicama */
+  --shadow-card: 0 2px 4px 0 rgba(0, 0, 0, 0.12);
+  --shadow-card-hover: 0 4px 8px 0 rgba(0, 0, 0, 0.16);
+  --shadow-modal: 0 8px 16px 0 rgba(0, 0, 0, 0.2);
+  --shadow-dropdown: 0 6px 12px 0 rgba(0, 0, 0, 0.15);
+
+  /* ===========================
+     OPTIONAL: COMPONENT ADJUSTMENTS
+     =========================== */
+
+  /* Alert - oštre ivice */
+  --alert-radius: 0;
+
+  /* Toast - oštre ivice */
+  --toast-radius: 0;
+
+  /* Tooltip - oštre ivice */
+  --tooltip-radius: 0;
+
+  /* Avatar - može ostati zaobljeno ili kvadratno */
+  /* Ako želiš kvadratne avatare, dodaj: */
+  /* --avatar-radius: 0; */
+}
+
+/* ============================================
+   DODATNI STILOVI ZA SHARP TEMU
+   ============================================ */
+
+/* Fokus outline bez radiusa */
+:focus-visible {
+  outline: 2px solid var(--color-border-focus);
+  outline-offset: 0;
+  border-radius: 0;
+}
+
+/* Selection sa oštrim ivicama */
+::selection {
+  background-color: var(--color-primary-200);
+  color: var(--color-primary-900);
+}

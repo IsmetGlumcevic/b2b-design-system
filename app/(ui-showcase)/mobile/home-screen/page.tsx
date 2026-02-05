@@ -141,7 +141,7 @@ function createTabItems(activeTab: string, cartCount: number = 0) {
   return [
     { id: 'home', label: 'Početna', icon: <HomeIcon active={activeTab === 'home'} /> },
     { id: 'categories', label: 'Kategorije', icon: <CategoriesIcon active={activeTab === 'categories'} /> },
-    { id: 'cart', label: 'Korpa', icon: <CartIcon active={activeTab === 'cart'} />, badge: cartCount },
+    { id: 'cart', label: 'Košarica', icon: <CartIcon active={activeTab === 'cart'} />, badge: cartCount },
     { id: 'favorites', label: 'Favoriti', icon: <FavoritesIcon active={activeTab === 'favorites'} /> },
     { id: 'account', label: 'Profil', icon: <AccountIcon active={activeTab === 'account'} /> },
   ]
@@ -825,7 +825,7 @@ function ProductDetailsScreenContent({
             disabled={!isInStock}
             className="flex h-10 flex-1 items-center justify-center rounded-xl bg-[var(--color-primary-500)] text-sm font-semibold text-white transition-colors active:bg-[var(--color-primary-600)] disabled:bg-neutral-300"
           >
-            Dodaj u korpu
+            Dodaj u košaricu
           </button>
         </div>
       </div>
@@ -1089,8 +1089,8 @@ function CartScreenContent({
         <div className="mb-4 flex h-20 w-20 items-center justify-center rounded-full bg-neutral-100 text-neutral-400">
           <CartIcon active={false} />
         </div>
-        <h2 className="mb-2 text-lg font-semibold text-neutral-900">Korpa je prazna</h2>
-        <p className="text-sm text-neutral-500">Dodajte proizvode iz kataloga u korpu</p>
+        <h2 className="mb-2 text-lg font-semibold text-neutral-900">Košarica je prazna</h2>
+        <p className="text-sm text-neutral-500">Dodajte proizvode iz kataloga u košaricu</p>
         <button
           onClick={onContinueShopping}
           className="mt-4 rounded-xl bg-[var(--color-primary-500)] px-4 py-2 text-sm font-semibold text-white transition-colors active:bg-[var(--color-primary-600)]"
@@ -1829,7 +1829,7 @@ function MobileHomeScreenContent() {
       home: '',
       categories: 'Kategorije',
       brands: 'Brendovi',
-      cart: 'Korpa',
+      cart: 'Košarica',
       favorites: 'Favoriti',
       account: 'Profil',
     }
@@ -2015,7 +2015,7 @@ export default function MobileHomeScreenShowcase() {
         <div className="rounded-xl border border-blue-200 bg-blue-50 p-4 sm:p-5">
           <h3 className="mb-2 font-semibold text-blue-900 text-sm sm:text-base">Kako koristiti</h3>
           <ul className="space-y-1.5 sm:space-y-2 text-xs sm:text-sm text-blue-800">
-            <li>• Kliknite na tabove (Početna, Kategorije, Korpa, Favoriti, Profil)</li>
+            <li>• Kliknite na tabove (Početna, Kategorije, Košarica, Favoriti, Profil)</li>
             <li>• Na početnoj: kliknite &quot;Sve&quot; kod Kategorija ili Brendova</li>
             <li>• Kliknite na kategoriju/brend za detalje</li>
             <li>• Koristite strelicu nazad za povratak</li>

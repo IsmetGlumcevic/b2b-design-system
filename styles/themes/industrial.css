@@ -1,0 +1,98 @@
+/* ============================================
+   INDUSTRIAL THEME - Technical B2B Style
+   0-2px radius, tight spacing, technical colors
+   ============================================ */
+
+:root {
+  /* ===========================
+     BORDER RADIUS - Minimal
+     Technical, precise look
+     =========================== */
+
+  /* Base Border Radius - minimalno */
+  --radius-none: 0;
+  --radius-sm: 0;
+  --radius-base: 2px;
+  --radius-md: 2px;
+  --radius-lg: 2px;
+  --radius-xl: 2px;
+  --radius-2xl: 2px;
+  --radius-3xl: 2px;
+
+  /* Semantic Border Radius */
+  --radius-button: 2px;
+  --radius-input: 2px;
+  --radius-card: 2px;
+  --radius-modal: 2px;
+
+  /* ===========================
+     SPACING - Tight
+     Efficient use of space
+     =========================== */
+
+  /* Semantic Spacing - tighter */
+  --card-padding: var(--spacing-5);
+  --card-padding-sm: var(--spacing-3);
+  --grid-gap: var(--spacing-4);
+  --section-padding-y: var(--spacing-10);
+  --container-padding: var(--spacing-4);
+
+  --product-card-padding: var(--spacing-4);
+  --header-padding-x: var(--spacing-4);
+  --footer-padding: var(--spacing-8);
+  --mobile-padding: var(--spacing-3);
+
+  /* Component Spacing */
+  --button-padding-x: var(--spacing-4);
+  --button-padding-y: var(--spacing-2);
+  --input-padding-x: var(--spacing-3);
+  --input-padding-y: var(--spacing-2);
+
+  /* ===========================
+     SHADOWS - Sharp, defined
+     Technical precision
+     =========================== */
+
+  --shadow-card: 0 2px 4px 0 rgba(0, 0, 0, 0.15);
+  --shadow-card-hover: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+  --shadow-modal: 0 8px 16px 0 rgba(0, 0, 0, 0.25);
+  --shadow-dropdown: 0 6px 12px 0 rgba(0, 0, 0, 0.18);
+
+  /* ===========================
+     COLORS - Technical tones
+     =========================== */
+
+  /* Primary - Steel blue */
+  --color-primary-50: #f0f4f8;
+  --color-primary-100: #d9e2ec;
+  --color-primary-200: #bcccdc;
+  --color-primary-300: #9fb3c8;
+  --color-primary-400: #829ab1;
+  --color-primary-500: #627d98;
+  --color-primary-600: #486581;
+  --color-primary-700: #334e68;
+  --color-primary-800: #243b53;
+  --color-primary-900: #102a43;
+
+  /* Component-specific adjustments */
+  --alert-radius: 2px;
+  --toast-radius: 2px;
+  --tooltip-radius: 2px;
+}
+
+/* ============================================
+   INDUSTRIAL THEME DODATNI STILOVI
+   ============================================ */
+
+/* Fokus outline - sharp */
+:focus-visible {
+  outline: 2px solid var(--color-border-focus);
+  outline-offset: 0;
+  border-radius: 2px;
+}
+
+/* Selection - technical highlight */
+::selection {
+  background-color: var(--color-primary-200);
+  color: var(--color-primary-900);
+}

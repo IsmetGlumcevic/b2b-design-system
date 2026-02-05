@@ -8,7 +8,7 @@ import type { Product } from '@/src/types/product'
 export interface ProductInfoProps {
   /** Proizvod */
   product: Product
-  /** Callback za dodavanje u korpu */
+  /** Callback za dodavanje u košaricu */
   onAddToCart?: (id: string, quantity: number) => void
   /** Callback za dodavanje u favorite */
   onAddToWishlist?: (id: string) => void
@@ -236,7 +236,7 @@ export function ProductInfo({
           )}
         >
           <CartIcon className="h-5 w-5" />
-          {isAdding ? 'Dodajem...' : 'Dodaj u korpu'}
+          {isAdding ? 'Dodajem...' : 'Dodaj u košaricu'}
         </button>
 
         {/* Wishlist Button */}

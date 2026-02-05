@@ -181,7 +181,7 @@ import { Button, IconButton, LinkButton } from '@/src/components/ui/buttons'
 import { Input, TextArea, Select, Checkbox, Radio, Switch } from '@/src/components/ui'
 
 // Button usage
-<Button variant="primary" size="md">Dodaj u korpu</Button>
+<Button variant="primary" size="md">Dodaj u košaricu</Button>
 <IconButton icon={<SearchIcon />} aria-label="Pretraga" />
 <LinkButton href="/proizvodi">Pogledaj sve</LinkButton>
 

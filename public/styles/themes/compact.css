@@ -1,0 +1,59 @@
+/* ============================================
+   COMPACT THEME - Tighter spacing
+   Gusti dizajn sa manje whitespace-a
+   ============================================ */
+
+:root {
+  /* ===========================
+     SPACING OVERRIDES
+     Sve komponente dobijaju manji padding/gap
+     =========================== */
+
+  /* Card Spacing - Tighter */
+  --card-padding: var(--spacing-4);              /* 24px → 16px */
+  --card-padding-sm: var(--spacing-3);           /* 16px → 12px */
+  --card-gap: var(--spacing-3);                  /* 16px → 12px */
+
+  /* Button Spacing - Tighter */
+  --spacing-button-padding-x: var(--spacing-4);  /* 24px → 16px */
+  --spacing-button-padding-y: var(--spacing-2);  /* 10px → 8px */
+
+  /* Grid Spacing - Tighter */
+  --grid-gap: var(--spacing-4);                  /* 24px → 16px */
+  --grid-gap-mobile: var(--spacing-3);           /* 16px → 12px */
+
+  /* Product Card - Tighter */
+  --product-card-padding: var(--spacing-4);      /* 24px → 16px */
+  --product-card-gap: var(--spacing-3);          /* 16px → 12px */
+
+  /* Section Spacing - Tighter */
+  --section-padding-y: var(--spacing-12);        /* 64px → 48px */
+  --spacing-section-gap: var(--spacing-12);      /* 64px → 48px */
+
+  /* Container Padding - Tighter */
+  --spacing-container-padding: var(--spacing-4); /* 24px → 16px */
+
+  /* Header Padding - Tighter */
+  --header-padding-x: var(--spacing-4);          /* 24px → 16px */
+  --header-padding-y: var(--spacing-3);          /* 16px → 12px */
+
+  /* Modal Padding - Tighter */
+  --modal-padding: var(--spacing-6);             /* 32px → 24px */
+
+  /* ===========================
+     OPTIONAL: Border Radius
+     Compact tema često ima manje zaobljenje
+     =========================== */
+
+  --radius-button: var(--radius-sm);             /* 6px → 2px */
+  --radius-card: var(--radius-md);               /* 8px → 6px */
+}
+
+/* ============================================
+   COMPACT UTILITIES
+   ============================================ */
+
+/* Tighter line height for compact look */
+body {
+  line-height: var(--line-height-snug);  /* 1.375 umjesto 1.5 */
+}

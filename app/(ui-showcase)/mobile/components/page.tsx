@@ -86,7 +86,7 @@ export default function MobileComponentsShowcase() {
   const getTabItems = (active: string) => [
     { id: 'home', label: 'Početna', icon: <HomeIcon active={active === 'home'} /> },
     { id: 'categories', label: 'Kategorije', icon: <CategoriesIcon active={active === 'categories'} /> },
-    { id: 'cart', label: 'Korpa', icon: <CartIcon active={active === 'cart'} />, badge: 3 },
+    { id: 'cart', label: 'Košarica', icon: <CartIcon active={active === 'cart'} />, badge: 3 },
     { id: 'favorites', label: 'Favoriti', icon: <FavoritesIcon active={active === 'favorites'} /> },
     { id: 'account', label: 'Profil', icon: <AccountIcon active={active === 'account'} /> },
   ]
@@ -349,7 +349,7 @@ export default function MobileComponentsShowcase() {
         {/* Mobile Cart Components */}
         <ComponentShowcase
           title="Mobile Cart"
-          description="Komponente za korpu: stavke, sažetak i checkout bar."
+          description="Komponente za košaricu: stavke, sažetak i checkout bar."
         >
           <VariantCard label="Cart Item">
             <div className="w-80 bg-neutral-200 p-3">

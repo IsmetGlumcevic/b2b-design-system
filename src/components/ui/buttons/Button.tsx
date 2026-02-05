@@ -48,7 +48,7 @@ const sizeStyles: Record<ButtonSize, string> = {
  * Uses CSS variables for theming support.
  *
  * @example
- * <Button variant="primary" size="md">Dodaj u korpu</Button>
+ * <Button variant="primary" size="md">Dodaj u košaricu</Button>
  * <Button variant="outline" leftIcon={<CartIcon />}>Dodaj</Button>
  */
 export const Button = forwardRef<HTMLButtonElement, ButtonProps>(

@@ -1,0 +1,71 @@
+/* ============================================
+   SPACIOUS THEME - Looser spacing
+   Prostrani dizajn sa više breathing room-a
+   ============================================ */
+
+:root {
+  /* ===========================
+     SPACING OVERRIDES
+     Sve komponente dobijaju veći padding/gap
+     =========================== */
+
+  /* Card Spacing - Looser */
+  --card-padding: var(--spacing-8);              /* 24px → 32px */
+  --card-padding-sm: var(--spacing-6);           /* 16px → 24px */
+  --card-padding-lg: var(--spacing-10);          /* 32px → 40px */
+  --card-gap: var(--spacing-6);                  /* 16px → 24px */
+
+  /* Button Spacing - Looser */
+  --spacing-button-padding-x: var(--spacing-8);  /* 24px → 32px */
+  --spacing-button-padding-y: var(--spacing-3);  /* 10px → 12px */
+
+  /* Grid Spacing - Looser */
+  --grid-gap: var(--spacing-8);                  /* 24px → 32px */
+  --grid-gap-mobile: var(--spacing-6);           /* 16px → 24px */
+
+  /* Product Card - Looser */
+  --product-card-padding: var(--spacing-8);      /* 24px → 32px */
+  --product-card-gap: var(--spacing-6);          /* 16px → 24px */
+
+  /* Section Spacing - Looser */
+  --section-padding-y: var(--spacing-20);        /* 64px → 80px */
+  --spacing-section-gap: var(--spacing-20);      /* 64px → 80px */
+
+  /* Container Padding - Looser */
+  --spacing-container-padding: var(--spacing-8); /* 24px → 32px */
+
+  /* Header Padding - Looser */
+  --header-padding-x: var(--spacing-8);          /* 24px → 32px */
+  --header-padding-y: var(--spacing-5);          /* 16px → 20px */
+
+  /* Modal Padding - Looser */
+  --modal-padding: var(--spacing-10);            /* 32px → 40px */
+
+  /* List Gap - Looser */
+  --list-gap: var(--spacing-6);                  /* 16px → 24px */
+
+  /* ===========================
+     OPTIONAL: Border Radius
+     Spacious tema često ima veće zaobljenje
+     =========================== */
+
+  --radius-button: var(--radius-xl);             /* 6px → 12px */
+  --radius-card: var(--radius-2xl);              /* 8px → 16px */
+
+  /* ===========================
+     OPTIONAL: Shadows
+     Prostraniji dizajn često ima mekše shadows
+     =========================== */
+
+  --shadow-card: 0 1px 3px 0 rgba(0, 0, 0, 0.08), 0 1px 2px -1px rgba(0, 0, 0, 0.08);
+  --shadow-card-hover: 0 4px 6px -1px rgba(0, 0, 0, 0.08), 0 2px 4px -2px rgba(0, 0, 0, 0.08);
+}
+
+/* ============================================
+   SPACIOUS UTILITIES
+   ============================================ */
+
+/* Looser line height for spacious look */
+body {
+  line-height: var(--line-height-relaxed);  /* 1.625 umjesto 1.5 */
+}

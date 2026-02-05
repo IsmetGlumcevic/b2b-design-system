@@ -120,7 +120,7 @@ export function MobileTabBar({
 export const defaultTabItems: TabItem[] = [
   { id: 'home', label: 'Početna', icon: <HomeIcon /> },
   { id: 'categories', label: 'Kategorije', icon: <CategoriesIcon /> },
-  { id: 'cart', label: 'Korpa', icon: <CartIcon />, badge: 0 },
+  { id: 'cart', label: 'Košarica', icon: <CartIcon />, badge: 0 },
   { id: 'favorites', label: 'Favoriti', icon: <FavoritesIcon /> },
   { id: 'account', label: 'Profil', icon: <AccountIcon /> },
 ]

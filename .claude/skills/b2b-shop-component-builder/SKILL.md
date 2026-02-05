@@ -133,7 +133,30 @@ import { IconSearch, IconCart, IconUser } from '@/lib/icons'
 <IconSearch className="w-5 h-5 text-[var(--color-icon-primary)]" />
 ```
 
-**E. Responsive Design (OBAVEZNO!):**
+**E. JEZIK - Svi UI tekstovi na hrvatskom (OBAVEZNO!):**
+
+**VAŽNO:** Svi tekstovi u UI komponentama MORAJU biti na hrvatskom jeziku:
+- ✅ Button labels: "Dodaj u košaricu", "Pretraži", "Prijavi se"
+- ✅ Placeholder tekstovi: "Unesite email...", "Pretražite proizvode..."
+- ✅ Error poruke: "Molimo unesite ispravnu email adresu"
+- ✅ Success poruke: "Uspješno dodano u košaricu"
+- ✅ Loading state: "Učitavanje...", "Molimo pričekajte..."
+- ✅ Tooltips i ARIA labels: "Otvori navigaciju", "Zatvori"
+- ✅ Confirmation: "Potvrdi", "Odustani", "Da", "Ne"
+
+```typescript
+// ✅ PRAVILNO - Hrvatski
+<button>Dodaj u košaricu</button>
+<input placeholder="Pretražite proizvode..." />
+<p>Nema rezultata</p>
+
+// ❌ POGREŠNO - Engleski ili drugi jezici
+<button>Add to cart</button>
+<input placeholder="Search products..." />
+<p>No results</p>
+```
+
+**F. Responsive Design (OBAVEZNO!):**
 
 **SVAKA KOMPONENTA MORA biti prilagođena za sve uređaje:**
 
@@ -230,6 +253,7 @@ Provjeri da je SVE napravljeno:
 - [ ] ✅ CSS varijable korištene (ne hardcoded)
 - [ ] ✅ Untitled Icons Pro korišten
 - [ ] ✅ Server/Client odluka pravilna
+- [ ] ✅ **Svi UI tekstovi na HRVATSKOM jeziku** (button labels, placeholders, poruke)
 - [ ] ✅ **Responsive design - testiran na:**
   - [ ] 📱 Mobile (375px, 390px)
   - [ ] 📱 Tablet (768px, 820px)
@@ -263,14 +287,19 @@ Provjeri da je SVE napravljeno:
 3. **CSS varijable su obavezne** - nikad hardcode-uj boje ili spacing
 4. **Untitled Icons Pro** - sve ikonice iz ovog paketa
 5. **TypeScript strict mode** - nikad koristi `any`, uvijek tipizuj
-6. **RESPONSIVE DESIGN (OBAVEZNO!)** - svaka komponenta MORA raditi na:
+6. **HRVATSKI JEZIK (OBAVEZNO!)** - svi UI tekstovi MORAJU biti na hrvatskom:
+   - Button labels, placeholders, error/success poruke
+   - Tooltips, ARIA labels, confirmation tekstovi
+   - Loading state, validation poruke, help tekstovi
+   - Primjeri: "Dodaj u košaricu", "Pretražite proizvode...", "Uspješno spremljeno"
+7. **RESPONSIVE DESIGN (OBAVEZNO!)** - svaka komponenta MORA raditi na:
    - 📱 **Mobile** (375px - 767px)
    - 📱 **Tablet** (768px - 1023px)
    - 💻 **Desktop** (1024px+)
    - Koristi mobile-first pristup (dizajniraj prvo za mobile)
-7. **Accessibility** - dodaj ARIA labels, keyboard navigation, focus states
-8. **SHOWCASE JE OBAVEZAN** - svaka komponenta MORA imati showcase stranicu!
-9. **Template fajlovi** - koristi templates/ folder za brže kreiranje
+8. **Accessibility** - dodaj ARIA labels, keyboard navigation, focus states
+9. **SHOWCASE JE OBAVEZAN** - svaka komponenta MORA imati showcase stranicu!
+10. **Template fajlovi** - koristi templates/ folder za brže kreiranje
 
 ---
 
@@ -316,6 +345,7 @@ Dobro implementirana komponenta ima:
 - ✅ TypeScript tipove (strict mode)
 - ✅ CSS varijable za sve boje/spacing
 - ✅ Untitled Icons Pro za ikonice
+- ✅ **Svi UI tekstovi na HRVATSKOM jeziku** (bez engleskog!)
 - ✅ **Responsive design testirano na:**
   - 📱 Mobile (375px, 390px, 414px)
   - 📱 Tablet (768px, 820px, 1024px)

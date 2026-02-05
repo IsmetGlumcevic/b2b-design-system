@@ -33,7 +33,7 @@ export interface ProductTableItem {
 export interface ProductTableProps extends HTMLAttributes<HTMLDivElement> {
   /** Lista proizvoda za prikaz */
   items: ProductTableItem[]
-  /** Callback kada se klikne na dodaj u korpu */
+  /** Callback kada se klikne na dodaj u košaricu */
   onAddToCart?: (item: ProductTableItem, quantity: number) => void
   /** Da li je tabela u loading stanju */
   isLoading?: boolean
@@ -199,7 +199,7 @@ function AddToCartButton({ onClick, disabled }: { onClick: () => void; disabled?
         'disabled:opacity-40 disabled:cursor-not-allowed',
         'transition-all duration-[var(--duration-150)]'
       )}
-      aria-label="Dodaj u korpu"
+      aria-label="Dodaj u košaricu"
     >
       <CartIcon />
     </button>
@@ -324,7 +324,7 @@ function ProductTableRow({ item, onAddToCart }: ProductTableRowProps) {
         />
       </td>
 
-      {/* Kupi (količina + korpa) */}
+      {/* Kupi (količina + Košarica) */}
       <td className="px-[var(--spacing-4)] py-[var(--spacing-4)]">
         <div className="flex items-center justify-end gap-[var(--spacing-2)]">
           <QuantitySelector

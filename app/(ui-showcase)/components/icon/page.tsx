@@ -352,7 +352,7 @@ export default function IconPage() {
             </p>
             <p className="flex items-center gap-2 text-[var(--color-text-primary)]">
               <Icon icon={ShoppingCartIcon} size="sm" color="primary" />
-              Dodaj u korpu
+              Dodaj u košaricu
             </p>
             <p className="flex items-center gap-2 text-[var(--color-text-primary)]">
               <Icon icon={SettingsIcon} size="sm" color="secondary" />

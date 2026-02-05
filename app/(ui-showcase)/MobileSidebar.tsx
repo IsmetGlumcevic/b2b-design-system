@@ -8,6 +8,7 @@ interface NavigationItem {
   name: string
   href: string
   disabled?: boolean
+  badge?: string
 }
 
 interface MobileSidebarProps {
@@ -102,13 +103,18 @@ export function MobileSidebar({ navigation }: MobileSidebarProps) {
                       <Link
                         href={item.href}
                         onClick={() => setIsOpen(false)}
-                        className={`block rounded-md px-3 py-2 text-sm transition-colors hover:bg-[var(--color-bg-tertiary)] hover:text-[var(--color-text-primary)] ${
+                        className={`flex items-center justify-between rounded-md px-3 py-2 text-sm transition-colors hover:bg-[var(--color-bg-tertiary)] hover:text-[var(--color-text-primary)] ${
                           pathname === item.href
                             ? 'bg-[var(--color-bg-tertiary)] text-[var(--color-text-primary)]'
                             : 'text-[var(--color-text-secondary)]'
                         }`}
                       >
-                        {item.name}
+                        <span>{item.name}</span>
+                        {item.badge && (
+                          <span className="ml-2 rounded-full bg-[var(--color-primary-500)] px-2 py-0.5 text-[9px] font-bold text-white">
+                            {item.badge}
+                          </span>
+                        )}
                       </Link>
                     )}
                   </li>

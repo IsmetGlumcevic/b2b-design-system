@@ -11,7 +11,7 @@ export interface RelatedProductsProps {
   title: string
   /** Proizvodi */
   products: RelatedProduct[]
-  /** Callback za dodavanje u korpu */
+  /** Callback za dodavanje u košaricu */
   onAddToCart?: (id: string, quantity: number) => void
   /** Dodatne CSS klase */
   className?: string
@@ -192,7 +192,7 @@ function ProductMiniCard({ product, onAddToCart }: ProductMiniCardProps) {
               )}
             >
               <CartIcon className="h-3.5 w-3.5" />
-              {isInStock ? 'U korpu' : 'Nema'}
+              {isInStock ? 'U košaricu' : 'Nema'}
             </button>
           )}
         </div>

@@ -25,7 +25,7 @@ function createTabItems(activeTab: string) {
   return [
     { id: 'home', label: 'Početna', icon: <HomeIcon active={activeTab === 'home'} /> },
     { id: 'categories', label: 'Kategorije', icon: <CategoriesIcon active={activeTab === 'categories'} /> },
-    { id: 'cart', label: 'Korpa', icon: <CartIcon active={activeTab === 'cart'} />, badge: 3 },
+    { id: 'cart', label: 'Košarica', icon: <CartIcon active={activeTab === 'cart'} />, badge: 3 },
     { id: 'favorites', label: 'Favoriti', icon: <FavoritesIcon active={activeTab === 'favorites'} /> },
     { id: 'account', label: 'Profil', icon: <AccountIcon active={activeTab === 'account'} /> },
   ]

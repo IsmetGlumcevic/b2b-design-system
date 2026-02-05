@@ -3,15 +3,16 @@
   "version": "0.1.0",
   "private": true,
   "scripts": {
-    "dev": "next dev",
-    "build": "next build",
+    "dev": "node scripts/build-theme.mjs && next dev",
+    "build": "node scripts/build-theme.mjs && next build",
     "start": "next start",
     "lint": "eslint",
     "icons:line": "svgr --out-dir src/components/icons/Line --config-file svgr.config.js -- src/lib/icons/Line",
     "icons:solid": "svgr --out-dir src/components/icons/Solid --config-file svgr.config.js -- src/lib/icons/Solid",
     "icons:duotone": "svgr --out-dir src/components/icons/Duotone --config-file svgr.config.js -- src/lib/icons/Duotone",
     "icons:duocolor": "svgr --out-dir src/components/icons/Duocolor --config-file svgr.config.js -- src/lib/icons/Duocolor",
-    "icons": "npm run icons:line && npm run icons:solid && npm run icons:duotone && npm run icons:duocolor"
+    "icons": "npm run icons:line && npm run icons:solid && npm run icons:duotone && npm run icons:duocolor",
+    "build:theme": "node scripts/build-theme.mjs"
   },
   "dependencies": {
     "clsx": "^2.1.1",

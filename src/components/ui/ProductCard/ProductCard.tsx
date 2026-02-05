@@ -30,7 +30,7 @@ export interface ProductCardProps extends Omit<HTMLAttributes<HTMLDivElement>, '
   jedinica?: string
   /** URL za stranicu proizvoda */
   href?: string
-  /** Callback za dodavanje u korpu */
+  /** Callback za dodavanje u košaricu */
   onAddToCart?: (id: string, quantity: number) => void
   /** Callback za dodavanje u favorite */
   onAddToWishlist?: (id: string) => void
@@ -280,7 +280,7 @@ export function ProductCard({
             )}
           >
             <CartIcon className="h-4 w-4" />
-            <span className="hidden sm:inline">{isAdding ? 'Dodajem...' : 'U korpu'}</span>
+            <span className="hidden sm:inline">{isAdding ? 'Dodajem...' : 'U košaricu'}</span>
           </button>
         </div>
       </div>

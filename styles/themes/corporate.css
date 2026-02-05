@@ -1,0 +1,98 @@
+/* ============================================
+   CORPORATE THEME - Traditional Enterprise Style
+   2-4px radius, conservative colors, formal
+   ============================================ */
+
+:root {
+  /* ===========================
+     BORDER RADIUS - Subtle
+     Professional, conservative look
+     =========================== */
+
+  /* Base Border Radius - subtle */
+  --radius-none: 0;
+  --radius-sm: 2px;
+  --radius-base: 3px;
+  --radius-md: 4px;
+  --radius-lg: 4px;
+  --radius-xl: 4px;
+  --radius-2xl: 6px;
+  --radius-3xl: 8px;
+
+  /* Semantic Border Radius */
+  --radius-button: 3px;
+  --radius-input: 3px;
+  --radius-card: 4px;
+  --radius-modal: 4px;
+
+  /* ===========================
+     SPACING - Standard
+     Balanced, professional spacing
+     =========================== */
+
+  /* Semantic Spacing - balanced */
+  --card-padding: var(--spacing-6);
+  --card-padding-sm: var(--spacing-4);
+  --grid-gap: var(--spacing-6);
+  --section-padding-y: var(--spacing-12);
+  --container-padding: var(--spacing-6);
+
+  --product-card-padding: var(--spacing-5);
+  --header-padding-x: var(--spacing-6);
+  --footer-padding: var(--spacing-10);
+  --mobile-padding: var(--spacing-4);
+
+  /* Component Spacing */
+  --button-padding-x: var(--spacing-5);
+  --button-padding-y: var(--spacing-2-5);
+  --input-padding-x: var(--spacing-4);
+  --input-padding-y: var(--spacing-2-5);
+
+  /* ===========================
+     SHADOWS - Soft, professional
+     Subtle elevation
+     =========================== */
+
+  --shadow-card: 0 1px 3px 0 rgba(0, 0, 0, 0.08);
+  --shadow-card-hover: 0 4px 6px 0 rgba(0, 0, 0, 0.1);
+  --shadow-modal: 0 10px 20px 0 rgba(0, 0, 0, 0.12);
+  --shadow-dropdown: 0 4px 8px 0 rgba(0, 0, 0, 0.1);
+
+  /* ===========================
+     COLORS - Conservative tones
+     =========================== */
+
+  /* Primary - Navy blue */
+  --color-primary-50: #f0f4f8;
+  --color-primary-100: #d9e4ec;
+  --color-primary-200: #b8cedb;
+  --color-primary-300: #8fb4c9;
+  --color-primary-400: #6799b6;
+  --color-primary-500: #3e7ea3;
+  --color-primary-600: #2e5f7a;
+  --color-primary-700: #1f4152;
+  --color-primary-800: #122939;
+  --color-primary-900: #0a1a24;
+
+  /* Component-specific adjustments */
+  --alert-radius: 4px;
+  --toast-radius: 4px;
+  --tooltip-radius: 3px;
+}
+
+/* ============================================
+   CORPORATE THEME DODATNI STILOVI
+   ============================================ */
+
+/* Fokus outline - professional */
+:focus-visible {
+  outline: 2px solid var(--color-border-focus);
+  outline-offset: 2px;
+  border-radius: 3px;
+}
+
+/* Selection - corporate highlight */
+::selection {
+  background-color: var(--color-primary-100);
+  color: var(--color-primary-900);
+}

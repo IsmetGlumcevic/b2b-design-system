@@ -1,0 +1,128 @@
+/* ============================================
+   BRUTALIST THEME - Raw Minimalist Style
+   0px radius, monospace accents, high contrast
+   ============================================ */
+
+:root {
+  /* ===========================
+     BORDER RADIUS - None
+     Completely raw, unpolished
+     =========================== */
+
+  /* Base Border Radius - sve na 0 */
+  --radius-none: 0;
+  --radius-sm: 0;
+  --radius-base: 0;
+  --radius-md: 0;
+  --radius-lg: 0;
+  --radius-xl: 0;
+  --radius-2xl: 0;
+  --radius-3xl: 0;
+
+  /* Semantic Border Radius */
+  --radius-button: 0;
+  --radius-input: 0;
+  --radius-card: 0;
+  --radius-modal: 0;
+
+  /* ===========================
+     SPACING - Asymmetric
+     Unconventional layout
+     =========================== */
+
+  /* Semantic Spacing - raw */
+  --card-padding: var(--spacing-8);
+  --card-padding-sm: var(--spacing-4);
+  --grid-gap: var(--spacing-8);
+  --section-padding-y: var(--spacing-16);
+  --container-padding: var(--spacing-6);
+
+  --product-card-padding: var(--spacing-6);
+  --header-padding-x: var(--spacing-6);
+  --footer-padding: var(--spacing-12);
+  --mobile-padding: var(--spacing-4);
+
+  /* Component Spacing */
+  --button-padding-x: var(--spacing-6);
+  --button-padding-y: var(--spacing-3);
+  --input-padding-x: var(--spacing-4);
+  --input-padding-y: var(--spacing-3);
+
+  /* ===========================
+     SHADOWS - Harsh, defined
+     No subtlety
+     =========================== */
+
+  --shadow-card: 4px 4px 0 0 rgba(0, 0, 0, 1);
+  --shadow-card-hover: 8px 8px 0 0 rgba(0, 0, 0, 1);
+  --shadow-modal: 12px 12px 0 0 rgba(0, 0, 0, 1);
+  --shadow-dropdown: 6px 6px 0 0 rgba(0, 0, 0, 1);
+
+  /* ===========================
+     COLORS - High contrast
+     Black and white dominance
+     =========================== */
+
+  /* Primary - Pure black */
+  --color-primary-50: #fafafa;
+  --color-primary-100: #f4f4f5;
+  --color-primary-200: #e4e4e7;
+  --color-primary-300: #d4d4d8;
+  --color-primary-400: #a1a1aa;
+  --color-primary-500: #71717a;
+  --color-primary-600: #52525b;
+  --color-primary-700: #3f3f46;
+  --color-primary-800: #27272a;
+  --color-primary-900: #18181b;
+
+  /* Background - stark contrast */
+  --color-bg-primary: #ffffff;
+  --color-bg-secondary: #fafafa;
+  --color-bg-tertiary: #f4f4f5;
+  --color-bg-elevated: #ffffff;
+
+  /* Text - maximum contrast */
+  --color-text-primary: #000000;
+  --color-text-secondary: #3f3f46;
+  --color-text-tertiary: #71717a;
+
+  /* Borders - thick and visible */
+  --color-border-primary: #000000;
+  --color-border-secondary: #27272a;
+  --color-border-tertiary: #52525b;
+
+  /* Component-specific adjustments */
+  --alert-radius: 0;
+  --toast-radius: 0;
+  --tooltip-radius: 0;
+}
+
+/* ============================================
+   BRUTALIST THEME DODATNI STILOVI
+   ============================================ */
+
+/* Fokus outline - harsh */
+:focus-visible {
+  outline: 3px solid #000000;
+  outline-offset: 0;
+  border-radius: 0;
+}
+
+/* Selection - stark */
+::selection {
+  background-color: #000000;
+  color: #ffffff;
+}
+
+/* Buttons - extra bold borders */
+button,
+.button {
+  border-width: 2px;
+  border-color: var(--color-border-primary);
+}
+
+/* Typography - monospace accent option */
+.mono-accent {
+  font-family: 'Courier New', Courier, monospace;
+  font-weight: 700;
+}
