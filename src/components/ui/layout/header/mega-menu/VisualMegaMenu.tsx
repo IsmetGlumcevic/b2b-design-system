@@ -165,8 +165,8 @@ export function VisualMegaMenu({
         <div
           ref={menuRef}
           className={cn(
-            'absolute top-full left-0 mt-2 z-50',
-            'w-[var(--mega-menu-width)] max-h-[var(--mega-menu-max-height)]',
+            'fixed top-[calc(var(--header-height)+var(--promo-bar-height,40px)+var(--trust-bar-height,40px))] left-1/2 -translate-x-1/2 mt-2 z-50',
+            'w-[var(--mega-menu-width)] max-w-[calc(100vw-2rem)] max-h-[var(--mega-menu-max-height)]',
             'flex rounded-[var(--mega-menu-radius)] overflow-hidden',
             'shadow-[var(--mega-menu-shadow)]',
             'border border-[var(--color-border-primary)]',

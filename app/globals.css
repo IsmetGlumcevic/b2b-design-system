@@ -151,6 +151,10 @@
   --spacing-80: 20rem;       /* 320px */
   --spacing-96: 24rem;       /* 384px */
 
+  /* Container */
+  --container-max-width: 1440px;
+  --container-padding: var(--spacing-6);            /* 24px */
+
   /* Semantic Spacing (Basic) */
   --spacing-container-padding: var(--spacing-6);    /* 24px */
   --spacing-section-gap: var(--spacing-16);         /* 64px */
