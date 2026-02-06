@@ -1,6 +1,6 @@
 import { forwardRef } from 'react'
 import { cn } from '@/src/lib/utils'
-import type { HeaderTopBarProps } from './types'
+import type { HeaderTopBarProps } from '../types'
 
 /**
  * HeaderTopBar - Top info bar (Server Component)

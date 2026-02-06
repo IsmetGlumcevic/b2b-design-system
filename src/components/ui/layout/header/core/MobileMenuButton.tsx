@@ -5,7 +5,7 @@ import { cn } from '@/src/lib/utils'
 import { IconButton } from '@/src/components/ui/buttons/IconButton'
 import Menu01 from '@/src/components/ui/icons/Line/General/Menu01'
 import XClose from '@/src/components/ui/icons/Line/General/XClose'
-import type { MobileMenuButtonProps } from './types'
+import type { MobileMenuButtonProps } from '../types'
 
 /**
  * MobileMenuButton - Hamburger menu toggle (Client Component)

@@ -4,7 +4,7 @@ import { forwardRef } from 'react'
 import { cn } from '@/src/lib/utils'
 import { IconButton } from '@/src/components/ui/buttons/IconButton'
 import SearchMd from '@/src/components/ui/icons/Line/General/SearchMd'
-import type { SearchTriggerProps } from './types'
+import type { SearchTriggerProps } from '../types'
 
 /**
  * SearchTrigger - Search button/input trigger (Client Component)

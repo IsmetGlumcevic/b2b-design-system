@@ -1,6 +1,6 @@
 import { forwardRef } from 'react'
 import { cn } from '@/src/lib/utils'
-import type { HeaderProps } from './types'
+import type { HeaderProps } from '../types'
 
 /**
  * Header - Main header wrapper component (Server Component)

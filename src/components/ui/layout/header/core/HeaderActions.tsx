@@ -1,6 +1,6 @@
 import { forwardRef } from 'react'
 import { cn } from '@/src/lib/utils'
-import type { HeaderActionsProps } from './types'
+import type { HeaderActionsProps } from '../types'
 
 /**
  * HeaderActions - Action buttons container (Server Component)

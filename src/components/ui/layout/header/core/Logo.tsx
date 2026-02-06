@@ -2,7 +2,7 @@ import { forwardRef } from 'react'
 import Link from 'next/link'
 import Image from 'next/image'
 import { cn } from '@/src/lib/utils'
-import type { LogoProps } from './types'
+import type { LogoProps } from '../types'
 
 /**
  * Logo - Logo with link to homepage (Server Component)

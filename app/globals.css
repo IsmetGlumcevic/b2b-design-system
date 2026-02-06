@@ -331,6 +331,95 @@
   /* Mobile Menu */
   --mobile-menu-width: 320px;
 
+  /* ===========================
+     TEMU-STYLE HEADER TOKENS
+     =========================== */
+
+  /* Promo Top Bar */
+  --promo-bar-height: 36px;
+  --promo-bar-bg: var(--color-primary-500);
+  --promo-bar-text: var(--color-primary-content);
+  --promo-bar-scroll-speed: 30s;
+  --promo-bar-item-gap: var(--spacing-8);
+
+  /* Benefits Bar */
+  --benefits-bar-height: 40px;
+  --benefits-bar-bg: var(--color-bg-secondary);
+  --benefits-bar-text: var(--color-text-secondary);
+
+  /* Trust Bar */
+  --trust-bar-height: 44px;
+  --trust-bar-bg: var(--color-bg-secondary);
+  --trust-bar-text: var(--color-text-secondary);
+  --trust-badge-gap: var(--spacing-8);
+
+  /* Visual Mega Menu */
+  --mega-menu-width: min(1200px, calc(100vw - 32px));
+  --mega-menu-max-height: 80vh;
+  --mega-menu-sidebar-width: 240px;
+  --mega-menu-bg: var(--color-bg-elevated);
+  --mega-menu-shadow: var(--shadow-xl);
+  --mega-menu-radius: var(--radius-lg);
+
+  /* Visual Category Cards */
+  --category-card-width: 140px;
+  --category-card-height: 160px;
+  --category-card-image-height: 100px;
+  --category-card-padding: var(--spacing-3);
+  --category-card-radius: var(--radius-lg);
+  --category-card-bg: var(--color-bg-primary);
+  --category-card-hover-bg: var(--color-bg-secondary);
+
+  /* Category Badge */
+  --category-badge-bg: var(--color-primary-500);
+  --category-badge-text: var(--color-primary-content);
+  --category-badge-hot-bg: #ff4d4f;
+  --category-badge-new-bg: #52c41a;
+  --category-badge-sale-bg: #fa8c16;
+  --category-badge-trending-bg: #722ed1;
+
+  /* Search Bar */
+  --search-bar-height: var(--button-height-lg);
+  --search-bar-width: 400px;
+  --search-bar-max-width: 100%;
+  --search-bar-bg: var(--color-bg-primary);
+  --search-bar-border: var(--color-border-primary);
+  --search-bar-radius: var(--radius-full);
+
+  /* Search Dropdown */
+  --search-dropdown-width: 400px;
+  --search-dropdown-max-height: 400px;
+  --search-dropdown-bg: var(--color-bg-elevated);
+  --search-dropdown-shadow: var(--shadow-lg);
+  --search-history-item-height: 48px;
+
+  /* Account Dropdown (Rich) */
+  --account-dropdown-width: 380px;
+  --account-history-width: 200px;
+  --account-menu-width: 180px;
+  --account-dropdown-bg: var(--color-bg-elevated);
+  --account-dropdown-shadow: var(--shadow-xl);
+  --account-history-item-height: 64px;
+
+  /* Quick Links */
+  --quick-links-height: 40px;
+  --quick-links-gap: var(--spacing-6);
+
+  /* Countdown */
+  --countdown-digit-size: 28px;
+  --countdown-digit-bg: var(--color-secondary-800);
+  --countdown-digit-text: var(--color-text-inverse);
+  --countdown-digit-radius: var(--radius-md);
+
+  /* Mobile Header (Minimal) */
+  --mobile-header-height: 56px;
+  --mobile-search-height: 40px;
+
+  /* Mobile Category Sidebar */
+  --mobile-sidebar-width: min(320px, 85vw);
+  --mobile-category-card-height: 80px;
+  --mobile-category-image-size: 60px;
+
   /* Cart Badge */
   --cart-badge-size: 18px;
 
@@ -612,4 +701,76 @@ body {
   clip: rect(0, 0, 0, 0);
   white-space: nowrap;
   border-width: 0;
+}
+
+/* ============================================
+   PROMO BAR ANIMATIONS
+   ============================================ */
+
+/* Promo bar marquee animation */
+.promo-marquee {
+  display: flex;
+  animation: promo-scroll var(--promo-bar-scroll-speed) linear infinite;
+}
+
+.promo-marquee:hover {
+  animation-play-state: paused;
+}
+
+@keyframes promo-scroll {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(-50%);
+  }
+}
+
+/* Countdown flip animation */
+.countdown-digit {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: var(--countdown-digit-size);
+  height: var(--countdown-digit-size);
+  background: var(--countdown-digit-bg);
+  color: var(--countdown-digit-text);
+  border-radius: var(--countdown-digit-radius);
+  font-weight: var(--font-weight-bold);
+  font-variant-numeric: tabular-nums;
+}
+
+/* Category card hover effect */
+.category-card-hover {
+  transition: var(--transition-fast);
+}
+
+.category-card-hover:hover {
+  transform: translateY(-2px);
+  box-shadow: var(--shadow-md);
+}
+
+/* Mega menu slide animation */
+.mega-menu-enter {
+  opacity: 0;
+  transform: translateY(-8px);
+}
+
+.mega-menu-enter-active {
+  opacity: 1;
+  transform: translateY(0);
+  transition: opacity var(--duration-200) var(--ease-out),
+              transform var(--duration-200) var(--ease-out);
+}
+
+.mega-menu-exit {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.mega-menu-exit-active {
+  opacity: 0;
+  transform: translateY(-8px);
+  transition: opacity var(--duration-150) var(--ease-in),
+              transform var(--duration-150) var(--ease-in);
 }

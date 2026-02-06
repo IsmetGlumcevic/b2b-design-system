@@ -8,7 +8,7 @@ import ChevronRight from '@/src/components/ui/icons/Line/Arrows/ChevronRight'
 import { MobileMenuButton } from './MobileMenuButton'
 import { MobileMenu } from './MobileMenu'
 import { MegaMenu, MegaMenuCategories, MegaMenuBrands } from '@/src/components/ui/MegaMenu'
-import type { MainNavigationProps, Category, NavigationItem } from './types'
+import type { MainNavigationProps, Category, NavigationItem } from '../types'
 
 /**
  * MainNavigation - Main navigation component (Client Component)

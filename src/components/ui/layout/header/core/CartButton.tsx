@@ -5,7 +5,7 @@ import Link from 'next/link'
 import { cn } from '@/src/lib/utils'
 import { IconButton } from '@/src/components/ui/buttons/IconButton'
 import ShoppingCart01 from '@/src/components/ui/icons/Line/Finance & eCommerce/ShoppingCart01'
-import type { CartButtonProps } from './types'
+import type { CartButtonProps } from '../types'
 
 /**
  * CartButton - Cart icon button with badge (Client Component)

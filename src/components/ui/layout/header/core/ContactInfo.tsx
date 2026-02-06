@@ -3,7 +3,7 @@ import { cn } from '@/src/lib/utils'
 import Phone from '@/src/components/ui/icons/Line/Communication/Phone'
 import Mail01 from '@/src/components/ui/icons/Line/Communication/Mail01'
 import Clock from '@/src/components/ui/icons/Line/Time/Clock'
-import type { ContactInfoProps } from './types'
+import type { ContactInfoProps } from '../types'
 
 /**
  * ContactInfo - Contact information display (Server Component)

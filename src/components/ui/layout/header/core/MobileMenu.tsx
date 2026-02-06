@@ -6,7 +6,7 @@ import { cn } from '@/src/lib/utils'
 import ChevronDown from '@/src/components/ui/icons/Line/Arrows/ChevronDown'
 import XClose from '@/src/components/ui/icons/Line/General/XClose'
 import { IconButton } from '@/src/components/ui/buttons/IconButton'
-import type { MobileMenuProps, Category, Brand, Service } from './types'
+import type { MobileMenuProps, Category, Brand, Service } from '../types'
 
 /**
  * MobileMenu - Mobile navigation drawer (Client Component)

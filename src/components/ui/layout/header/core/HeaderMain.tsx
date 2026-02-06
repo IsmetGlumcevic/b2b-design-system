@@ -1,6 +1,6 @@
 import { forwardRef } from 'react'
 import { cn } from '@/src/lib/utils'
-import type { HeaderMainProps } from './types'
+import type { HeaderMainProps } from '../types'
 
 /**
  * HeaderMain - Main header row container (Server Component)

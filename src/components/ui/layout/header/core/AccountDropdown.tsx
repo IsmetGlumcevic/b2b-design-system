@@ -15,7 +15,7 @@ import { Avatar } from '@/src/components/ui/Avatar/Avatar'
 import User01 from '@/src/components/ui/icons/Line/Users/User01'
 import Settings01 from '@/src/components/ui/icons/Line/General/Settings01'
 import LogOut01 from '@/src/components/ui/icons/Line/General/LogOut01'
-import type { AccountDropdownProps, AccountMenuItem } from './types'
+import type { AccountDropdownProps, AccountMenuItem } from '../types'
 
 // Internal icon for file/document
 function FileIcon({ className }: { className?: string }) {
