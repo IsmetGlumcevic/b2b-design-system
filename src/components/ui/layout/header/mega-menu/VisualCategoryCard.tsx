@@ -57,7 +57,7 @@ export function VisualCategoryCard({
 
   return (
     <a
-      href={`/kategorije/${category.slug}`}
+      href={`/shop-teme/temu-tema/kategorija/${category.slug}`}
       className={cn(
         'group flex flex-col items-center',
         'p-[var(--category-card-padding)]',

@@ -18,3 +18,10 @@ export {
   type TemuProduct,
 } from './TemuProductCard'
 export { TemuProductGrid, type TemuProductGridProps } from './TemuProductGrid'
+export {
+  TemuCategoryFilters,
+  type TemuCategoryFiltersProps,
+  type CategoryFilter,
+  type FilterOption,
+  type SortOption,
+} from './TemuCategoryFilters'

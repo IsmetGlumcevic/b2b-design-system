@@ -351,7 +351,7 @@ export function MobileCategorySidebar({
                 {subcategories.map((subcat) => (
                   <Link
                     key={subcat.id}
-                    href={`/kategorija/${subcat.slug}`}
+                    href={`/shop-teme/temu-tema/kategorija/${subcat.slug}`}
                     onClick={onClose}
                     className="flex flex-col items-center text-center group"
                   >
@@ -421,7 +421,7 @@ export function MobileCategorySidebar({
             {activeCategory && subcategories.length > 0 && (
               <div className="mt-6 pt-4 border-t border-[var(--color-border-primary)]">
                 <Link
-                  href={`/kategorija/${activeCategory.slug}`}
+                  href={`/shop-teme/temu-tema/kategorija/${activeCategory.slug}`}
                   onClick={onClose}
                   className="flex items-center justify-center gap-2 py-3 text-sm font-medium text-[var(--color-primary-500)] hover:text-[var(--color-primary-600)] transition-colors"
                 >

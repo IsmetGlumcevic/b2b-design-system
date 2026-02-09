@@ -253,7 +253,7 @@ export function MainNavigation({
               {item.children.map((child) => (
                 <Link
                   key={child.id}
-                  href={`/kategorija/${child.slug}`}
+                  href={`/shop-teme/temu-tema/kategorija/${child.slug}`}
                   role="menuitem"
                   className={cn(
                     'flex items-center justify-between',

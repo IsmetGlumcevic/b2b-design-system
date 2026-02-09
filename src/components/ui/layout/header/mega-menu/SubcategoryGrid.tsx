@@ -78,7 +78,7 @@ export function SubcategoryGrid({
       {subcategories.length > maxItems && (
         <div className="mt-6 text-center">
           <a
-            href="/kategorije"
+            href="/shop-teme/temu-tema/kategorija"
             className={cn(
               'inline-flex items-center gap-1 text-sm font-medium',
               'hover:underline',
